@@ -14,4 +14,4 @@
 - Создание тематических шаблонов звонков
 
 Подробнее можно ознакомиться в техническом задании:
-[my link](technical specification.md)
+[my link](technical_specification.md)
