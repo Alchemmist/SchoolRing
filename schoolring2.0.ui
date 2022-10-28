@@ -263,13 +263,13 @@ background-color: #1C1C1C</string>
       <string>Guest</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>105</y>
-       <width>93</width>
-       <height>137</height>
+       <x>55</x>
+       <y>125</y>
+       <width>146</width>
+       <height>301</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -292,7 +292,7 @@ background-color: #1C1C1C</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
        <widget class="QPushButton" name="timetable_button_8">
         <property name="font">
          <font>
@@ -311,7 +311,18 @@ background-color: #1C1C1C</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="3" column="0">
+       <widget class="Line" name="line">
+        <property name="styleSheet">
+         <string notr="true">color: white
+</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
        <widget class="QPushButton" name="timetable_button_7">
         <property name="font">
          <font>
@@ -327,31 +338,6 @@ background-color: #1C1C1C</string>
         </property>
         <property name="text">
          <string>Template</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QWidget" name="line_for_timetable" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: white</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QWidget" name="line_for_home" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: white</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="Line" name="line">
-        <property name="styleSheet">
-         <string notr="true">color: white
-</string>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
