@@ -88,7 +88,7 @@ border-radius: 18;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0,0,0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
@@ -1335,7 +1335,7 @@ background-color: rgb(255,160,0, 0);
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:/Users/Антон/Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
+       <pixmap>../../Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
       </property>
      </widget>
      <zorder>label_2</zorder>
@@ -1386,7 +1386,8 @@ padding: 20px;
         <string>Среда</string>
        </property>
        <property name="icon">
-        <iconset theme="1"/>
+        <iconset theme="1">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -1452,7 +1453,7 @@ padding: 20px;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>361</width>
+           <width>340</width>
            <height>696</height>
           </rect>
          </property>
@@ -2586,7 +2587,7 @@ padding: 10px;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>C:/Users/Антон/Downloads/icons8-кончик-карандаша-50.png</normaloff>C:/Users/Антон/Downloads/icons8-кончик-карандаша-50.png</iconset>
+        <normaloff>../../Downloads/icons8-кончик-карандаша-50.png</normaloff>../../Downloads/icons8-кончик-карандаша-50.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2657,7 +2658,7 @@ color: white</string>
       <string>G</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="title_part1">
      <property name="geometry">
       <rect>
        <x>65</x>
@@ -2682,7 +2683,7 @@ background-color: #1C1C1C</string>
       <string>School</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="title_part2">
      <property name="geometry">
       <rect>
        <x>125</x>
@@ -2707,7 +2708,7 @@ background-color: #1C1C1C</string>
       <string>Ring</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="login_buuton_text">
+    <widget class="QPushButton" name="login_button_text">
      <property name="geometry">
       <rect>
        <x>125</x>
@@ -2735,7 +2736,7 @@ background-color: #1C1C1C</string>
       <string>Guest</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -2744,9 +2745,9 @@ background-color: #1C1C1C</string>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="home_layout">
       <item>
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="home_icon">
         <property name="text">
          <string/>
         </property>
@@ -2756,7 +2757,7 @@ background-color: #1C1C1C</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="home_button_3">
+       <widget class="QPushButton" name="home_button">
         <property name="font">
          <font>
           <family>Yandex Sans Display Light</family>
@@ -2779,7 +2780,7 @@ background-color: #1C1C1C</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -2788,9 +2789,9 @@ background-color: #1C1C1C</string>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="timetable_layout">
       <item>
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="timetable_icon">
         <property name="text">
          <string/>
         </property>
@@ -2800,7 +2801,7 @@ background-color: #1C1C1C</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="timetable_button_8">
+       <widget class="QPushButton" name="timetable_button">
         <property name="font">
          <font>
           <family>Yandex Sans Display Light</family>
@@ -2823,18 +2824,18 @@ background-color: #1C1C1C</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
        <y>330</y>
-       <width>131</width>
+       <width>124</width>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QHBoxLayout" name="template_layout">
       <item>
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="template_icon">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -2845,12 +2846,12 @@ background-color: #1C1C1C</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Антон/Downloads/icons8-прототип-20.png</pixmap>
+         <pixmap>icons/template.png</pixmap>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="timetable_button_7">
+       <widget class="QPushButton" name="template_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
