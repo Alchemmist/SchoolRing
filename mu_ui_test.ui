@@ -48,9 +48,9 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>245</x>
+        <x>210</x>
         <y>30</y>
-        <width>481</width>
+        <width>441</width>
         <height>101</height>
        </rect>
       </property>
@@ -1453,7 +1453,7 @@ padding: 20px;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>340</width>
+           <width>361</width>
            <height>696</height>
           </rect>
          </property>
@@ -2603,7 +2603,24 @@ padding: 10px;</string>
      <zorder>comboBox</zorder>
      <zorder>pushButton</zorder>
     </widget>
-    <widget class="QWidget" name="Template_page"/>
+    <widget class="QWidget" name="Template_page">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>90</y>
+        <width>301</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: blue</string>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QFrame" name="menu">
     <property name="enabled">
