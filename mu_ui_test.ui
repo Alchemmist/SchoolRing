@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>788</width>
-    <height>582</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="font">
@@ -42,15 +42,15 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>245</x>
         <y>30</y>
-        <width>441</width>
+        <width>481</width>
         <height>101</height>
        </rect>
       </property>
@@ -117,7 +117,7 @@ border-radius: 18;
       <widget class="QWidget" name="scrollAreaWidgetContents">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>-468</x>
          <y>0</y>
          <width>1037</width>
          <height>382</height>
@@ -140,7 +140,7 @@ border-radius: 18;
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
+background-color: rgb(0,127,255);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -378,7 +378,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
+background-color: rgb(0,127,255);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -616,7 +616,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
+background-color: rgb(0,127,255);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -854,7 +854,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
+background-color: rgb(0,127,255);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -1092,7 +1092,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
+background-color: rgb(0,127,255);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -1335,7 +1335,7 @@ background-color: rgb(255,160,0, 0);
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
+       <pixmap>../../../Антон/Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
       </property>
      </widget>
      <zorder>label_2</zorder>
@@ -2587,7 +2587,7 @@ padding: 10px;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../Downloads/icons8-кончик-карандаша-50.png</normaloff>../../Downloads/icons8-кончик-карандаша-50.png</iconset>
+        <normaloff>../../../Антон/Downloads/icons8-кончик-карандаша-50.png</normaloff>../../../Антон/Downloads/icons8-кончик-карандаша-50.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2607,14 +2607,24 @@ padding: 10px;</string>
      <widget class="QPushButton" name="pushButton_2">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>90</y>
-        <width>301</width>
-        <height>311</height>
+        <x>340</x>
+        <y>205</y>
+        <width>75</width>
+        <height>23</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: blue</string>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>325</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
       </property>
       <property name="text">
        <string>PushButton</string>
@@ -2675,7 +2685,7 @@ color: white</string>
       <string>G</string>
      </property>
     </widget>
-    <widget class="QLabel" name="title_part1">
+    <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
        <x>65</x>
@@ -2700,7 +2710,7 @@ background-color: #1C1C1C</string>
       <string>School</string>
      </property>
     </widget>
-    <widget class="QLabel" name="title_part2">
+    <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
        <x>125</x>
@@ -2762,9 +2772,9 @@ background-color: #1C1C1C</string>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="home_layout">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="home_icon">
+       <widget class="QLabel" name="label_8">
         <property name="text">
          <string/>
         </property>
@@ -2806,9 +2816,9 @@ background-color: #1C1C1C</string>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="timetable_layout">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="timetable_icon">
+       <widget class="QLabel" name="label_9">
         <property name="text">
          <string/>
         </property>
@@ -2846,13 +2856,13 @@ background-color: #1C1C1C</string>
       <rect>
        <x>60</x>
        <y>330</y>
-       <width>124</width>
+       <width>131</width>
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="template_layout">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="template_icon">
+       <widget class="QLabel" name="label_10">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>

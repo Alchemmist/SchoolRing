@@ -26,7 +26,7 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>220</y>
+     <y>185</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -53,7 +53,7 @@ color: white</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>80</y>
+     <y>60</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -80,7 +80,7 @@ color: white</string>
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>40</y>
+     <y>20</y>
      <width>111</width>
      <height>37</height>
     </rect>
@@ -120,7 +120,7 @@ color: white</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>170</y>
+     <y>140</y>
      <width>171</width>
      <height>41</height>
     </rect>
@@ -155,6 +155,36 @@ color: white</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>245</y>
+     <width>146</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yandex Sans Display Bold</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;
+background-color: #0080ff;
+border-radius: 15;
+</string>
+   </property>
+   <property name="text">
+    <string>GO</string>
+   </property>
   </widget>
  </widget>
  <resources/>
