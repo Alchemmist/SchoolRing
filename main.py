@@ -11,22 +11,20 @@ class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('main.ui', self)
-        # menu tub button connect
-        self.init_menu_tub_button()
-        # menu logining button connect
-        self.init_logining_button()
+        # button connect
+        self.init_button()
 
         # can user edit data or not
-        self.login
+        self.is_logined = False
 
-    def init_menu_tub_button(self):
+    def init_button(self):
+        # menu tab
         self.home_button.clicked.connect(self.go_home)
         self.timetable_button.clicked.connect(self.go_timetable)
         self.template_button.clicked.connect(self.go_template)
-
-    def init_logining_button(self):
-        self.login_button_cerkle.clicked.connect(self.start_login)
-        self.login_button_text.clicked.connect(self.start_login)
+        # authorization
+        self.login_button_cerkle.clicked.connect(self.authorization)
+        self.login_button_text.clicked.connect(self.authorization)
 
     def go_home(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -37,21 +35,29 @@ class Window(QMainWindow):
     def go_template(self):
         self.stackedWidget.setCurrentIndex(2)
 
-    def start_login(self):
-        self.dialog = uic.loadUi('login.ui')
-        self.dialog.go_button.clivked.connect(self.sucdesfuly_login)
-        self.dialog.show()
+    def authorization(self):
+        self.authorization_dialog = uic.loadUi('authorization.ui')
+        self.authorization_dialog.show()
+        self.authorization_dialog.start_login_button.clicked.connect(self.login)
+        self.authorization_dialog.start_regisration_button.clicked.connect(self.registration)
 
-    def sucdesfuly_login(self):
-        # saving data
-        self.user_login = self.dialog.lineEdit_login.text()
-        self.user_password = self.dialog.lineEdit_passowrd.text()
+    def login(self):
+        self.authorization_dialog.hide()
+        self.login_dialog = uic.loadUi('logining.ui')
+        self.login_dialog.show()
+        self.login_dialog.go_sistem_button_log.clicked.connect(self.sucdesfuly_authorization)
 
-        # hide dialog and
-        self.dialog.hide()
+    def registration(self):
+        self.authorization_dialog.hide()
+        self.registration_dialog = uic.loadUi('registration.ui')
+        self.registration_dialog.show()
+        self.registration_dialog.go_sistem_button_reg.clicked.connect(self.sucdesfuly_authorization)
 
-        # edit programm funtions
-
+    def sucdesfuly_authorization(self):
+        if self.login_dialog.isHidden():
+            self.registration_dialog.hide()
+        elif self.registration_dialog.isHidden():
+            self.login_dialog.hide()
 
 
 if __name__ == '__main__':

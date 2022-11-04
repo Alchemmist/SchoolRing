@@ -42,7 +42,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="label">
@@ -2788,7 +2788,7 @@ background-color: #1C1C1C</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>icons/home.png</pixmap>
+         <pixmap>icons/main_window/home/home.png</pixmap>
         </property>
        </widget>
       </item>
@@ -2832,7 +2832,7 @@ background-color: #1C1C1C</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>icons/timetable.png</pixmap>
+         <pixmap>icons/main_window/home/timetable.png</pixmap>
         </property>
        </widget>
       </item>
@@ -2865,24 +2865,18 @@ background-color: #1C1C1C</string>
       <rect>
        <x>60</x>
        <y>330</y>
-       <width>131</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label_10">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
+       <widget class="QLabel" name="label_3">
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>icons/template.png</pixmap>
+         <pixmap>icons/main_window/home/template.png</pixmap>
         </property>
        </widget>
       </item>

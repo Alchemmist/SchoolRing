@@ -156,7 +156,7 @@ color: white</string>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="go_button">
+  <widget class="QPushButton" name="go_sistem_button_log">
    <property name="geometry">
     <rect>
      <x>170</x>

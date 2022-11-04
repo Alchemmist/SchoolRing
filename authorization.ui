@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>375</width>
-    <height>269</height>
+    <height>266</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: 	#333333</string>
   </property>
-  <widget class="QPushButton" name="go_button">
+  <widget class="QPushButton" name="start_login_button">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -46,7 +46,7 @@ border-radius: 12;
     <string>Login</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="go_button_2">
+  <widget class="QPushButton" name="start_regisration_button">
    <property name="geometry">
     <rect>
      <x>60</x>
