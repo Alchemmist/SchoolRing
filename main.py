@@ -10,11 +10,14 @@ from PyQt6.QtWidgets import (
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('mu_ui_test.ui', self)
+        uic.loadUi('main.ui', self)
         # menu tub button connect
         self.init_menu_tub_button()
         # menu logining button connect
         self.init_logining_button()
+
+        # can user edit data or not
+        self.login
 
     def init_menu_tub_button(self):
         self.home_button.clicked.connect(self.go_home)
@@ -35,8 +38,20 @@ class Window(QMainWindow):
         self.stackedWidget.setCurrentIndex(2)
 
     def start_login(self):
-        self.dialog = uic.loadUi('mu_ui_sest_dialog_login.ui')
+        self.dialog = uic.loadUi('login.ui')
+        self.dialog.go_button.clivked.connect(self.sucdesfuly_login)
         self.dialog.show()
+
+    def sucdesfuly_login(self):
+        # saving data
+        self.user_login = self.dialog.lineEdit_login.text()
+        self.user_password = self.dialog.lineEdit_passowrd.text()
+
+        # hide dialog and
+        self.dialog.hide()
+
+        # edit programm funtions
+
 
 
 if __name__ == '__main__':

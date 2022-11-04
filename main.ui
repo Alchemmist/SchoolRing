@@ -35,14 +35,14 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>-10</y>
       <width>791</width>
       <height>596</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="label">
@@ -117,7 +117,7 @@ border-radius: 18;
       <widget class="QWidget" name="scrollAreaWidgetContents">
        <property name="geometry">
         <rect>
-         <x>-468</x>
+         <x>0</x>
          <y>0</y>
          <width>1037</width>
          <height>382</height>
@@ -1335,7 +1335,7 @@ background-color: rgb(255,160,0, 0);
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Антон/Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
+       <pixmap>../../Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
       </property>
      </widget>
      <zorder>label_2</zorder>
@@ -1367,6 +1367,15 @@ background-color: #0080ff;
 border-radius: 18;
 padding: 20px;
 </string>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>18</height>
+       </size>
       </property>
       <property name="frame">
        <bool>false</bool>
@@ -2587,7 +2596,7 @@ padding: 10px;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../Антон/Downloads/icons8-кончик-карандаша-50.png</normaloff>../../../Антон/Downloads/icons8-кончик-карандаша-50.png</iconset>
+        <normaloff>../../Downloads/icons8-кончик-карандаша-50.png</normaloff>../../Downloads/icons8-кончик-карандаша-50.png</iconset>
       </property>
       <property name="iconSize">
        <size>
