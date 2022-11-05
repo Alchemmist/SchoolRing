@@ -92,7 +92,7 @@ color: white</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>icons/loginig/login_2.png</pixmap>
+       <pixmap>../icons/loginig/login_2.png</pixmap>
       </property>
      </widget>
     </item>
@@ -132,7 +132,7 @@ color: white</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>icons/loginig/password_2.png</pixmap>
+       <pixmap>../icons/loginig/password_2.png</pixmap>
       </property>
      </widget>
     </item>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>375</width>
-    <height>266</height>
+    <width>427</width>
+    <height>332</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,9 +19,9 @@
   <widget class="QPushButton" name="start_login_button">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>85</y>
-     <width>251</width>
+     <x>120</x>
+     <y>110</y>
+     <width>191</width>
      <height>61</height>
     </rect>
    </property>
@@ -45,12 +45,23 @@ border-radius: 12;
    <property name="text">
     <string>Login</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <activeon>../icons/authorization/login_3.png</activeon>
+    </iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
+   </property>
   </widget>
   <widget class="QPushButton" name="start_regisration_button">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>185</y>
+     <x>90</x>
+     <y>220</y>
      <width>251</width>
      <height>61</height>
     </rect>
@@ -75,11 +86,22 @@ border-radius: 12;
    <property name="text">
     <string>Rregistration</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <activeon>../icons/authorization/registrated.png</activeon>
+    </iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
+   </property>
   </widget>
   <widget class="QLabel" name="label_13">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>100</x>
      <y>20</y>
      <width>231</width>
      <height>31</height>
@@ -104,8 +126,8 @@ background-color: #333333</string>
   <widget class="QLabel" name="label_14">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>150</y>
+     <x>200</x>
+     <y>180</y>
      <width>31</width>
      <height>31</height>
     </rect>

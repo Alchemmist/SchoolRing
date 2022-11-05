@@ -79,7 +79,7 @@ background-color: #0080ff;</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>icons/registration/hello.png</pixmap>
+     <pixmap>../icons/registration/hello.png</pixmap>
     </property>
    </widget>
   </widget>
@@ -117,7 +117,7 @@ background-color: #0080ff;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-213</y>
       <width>356</width>
       <height>642</height>
      </rect>
@@ -612,11 +612,13 @@ border-radius: 15;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>icons/ring.png</normaloff>
-         <normalon>icons/ring.png</normalon>
-         <activeon>icons/ring.png</activeon>
-         <selectedoff>icons/registration/ring.png</selectedoff>
-         <selectedon>icons/ring.png</selectedon>icons/ring.png</iconset>
+         <normaloff>../icons/registration/ring.png</normaloff>
+         <normalon>../icons/registration/ring.png</normalon>
+         <disabledon>../icons/registration/ring.png</disabledon>
+         <activeoff>../icons/registration/ring.png</activeoff>
+         <activeon>../icons/registration/ring.png</activeon>
+         <selectedoff>../icons/registration/ring.png</selectedoff>
+         <selectedon>../icons/registration/ring.png</selectedon>../icons/registration/ring.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -741,7 +743,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/FIO.png</pixmap>
+        <pixmap>../icons/registration/FIO.png</pixmap>
        </property>
       </widget>
      </item>
@@ -751,7 +753,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/login.png</pixmap>
+        <pixmap>../icons/registration/login.png</pixmap>
        </property>
       </widget>
      </item>
@@ -761,7 +763,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/password.png</pixmap>
+        <pixmap>../icons/registration/password.png</pixmap>
        </property>
       </widget>
      </item>
@@ -771,7 +773,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/password.png</pixmap>
+        <pixmap>../icons/registration/password.png</pixmap>
        </property>
       </widget>
      </item>
@@ -781,7 +783,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/Schoolnumber.png</pixmap>
+        <pixmap>../icons/registration/Schoolnumber.png</pixmap>
        </property>
       </widget>
      </item>
@@ -791,7 +793,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/building.png</pixmap>
+        <pixmap>../icons/registration/building.png</pixmap>
        </property>
       </widget>
      </item>
@@ -801,7 +803,7 @@ color: white</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>icons/registration/phone.png</pixmap>
+        <pixmap>../icons/registration/phone.png</pixmap>
        </property>
       </widget>
      </item>
