@@ -117,7 +117,7 @@ background-color: #0080ff;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-213</y>
+      <y>0</y>
       <width>356</width>
       <height>642</height>
      </rect>
@@ -219,7 +219,7 @@ background-color: #0080ff;</string>
       </widget>
      </item>
      <item row="3" column="0" colspan="4">
-      <widget class="QLineEdit" name="lineEdit_login_2">
+      <widget class="QLineEdit" name="FIO_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -288,7 +288,7 @@ color: white</string>
       </widget>
      </item>
      <item row="12" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit_login_7">
+      <widget class="QLineEdit" name="school_num_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -321,7 +321,7 @@ color: white</string>
       </widget>
      </item>
      <item row="6" column="0" colspan="4">
-      <widget class="QLineEdit" name="lineEdit_login_3">
+      <widget class="QLineEdit" name="login_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -462,7 +462,7 @@ color: white</string>
       </widget>
      </item>
      <item row="14" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit_login_8">
+      <widget class="QLineEdit" name="building_num_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -495,7 +495,7 @@ color: white</string>
       </widget>
      </item>
      <item row="16" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit_login_9">
+      <widget class="QLineEdit" name="phone_num_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -544,7 +544,7 @@ color: white</string>
       </widget>
      </item>
      <item row="8" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit_login_4">
+      <widget class="QLineEdit" name="concoct_pw_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -705,7 +705,7 @@ border-radius: 15;
       </widget>
      </item>
      <item row="10" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit_login_5">
+      <widget class="QLineEdit" name="repeat_pw_lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>

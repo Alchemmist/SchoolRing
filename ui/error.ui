@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: 	#333333</string>
   </property>
-  <widget class="QPushButton" name="rest_button">
+  <widget class="QPushButton" name="er_button">
    <property name="geometry">
     <rect>
      <x>170</x>
