@@ -10,4 +10,4 @@ class LoginChecker:
 class RegistrChecker:
 
     def __init__(self, data: RegistrData):
-        self.status = False
+        self.status = True

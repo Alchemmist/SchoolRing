@@ -61,7 +61,7 @@ class Window(QMainWindow):
         self.authorization_dialog.hide()
         self.login_dialog = uic.loadUi('ui/logining.ui')
         self.login_dialog.show()
-        self.connect_message_window(LoginChecker(self.get_log_data()))
+        self.finish_authorization(LoginChecker(self.get_log_data()))
 
     def registring(self):
         """Open registration dialog window and hide authorization_dialog"""
@@ -69,14 +69,16 @@ class Window(QMainWindow):
         self.authorization_dialog.hide()
         self.registration_dialog = uic.loadUi('ui/registration.ui')
         self.registration_dialog.show()
-        self.connect_message_window(RegistrChecker(self.get_reg_data()))
+        self.finish_authorization(RegistrChecker(self.get_reg_data()))
 
     def sucsesfully_authorization(self):
         """Finsh sucsesfuly authorization process"""
+
         self.sucsesfuly_dialog = uic.loadUi('ui/sucsesfully.ui')
         self.sucsesfuly_dialog.show()
         self.sucsesfuly_dialog.suc_button.clicked.connect(self.clozing_windows)
-        self.interface_change()
+
+        # self.interface_change()
         self.is_logined = True
 
     def clozing_windows(self):
@@ -92,10 +94,9 @@ class Window(QMainWindow):
 
         self.error_dialog = uic.loadUi('ui/error.ui')
         self.error_dialog.show()
-        print(0)
-        self.error_dialog.er_button.clicked.connect(self.error_dialog.hide())
+        self.error_dialog.er_button.clicked.connect(self.error_dialog.hide)
 
-    def connect_message_window(self, checker: LoginChecker | RegistrChecker):
+    def finish_authorization(self, checker: LoginChecker | RegistrChecker):
         """Connect finfish-button for registr and login"""
 
         if type(checker) is RegistrChecker:
@@ -131,6 +132,16 @@ class Window(QMainWindow):
         )
 
     def interface_change(self):
+        self.chonge_login_button_text()
+        self.chonge_login_button_cerkle()
+
+    def chonge_login_button_text(self):
+        self.login_button_text.setText()
+
+    def chonge_login_button_cerkle(self):
+        pass
+
+    def save_registratin_data(self):
         pass
 
 

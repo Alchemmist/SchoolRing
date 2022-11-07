@@ -1462,7 +1462,7 @@ padding: 20px;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>340</width>
+           <width>361</width>
            <height>696</height>
           </rect>
          </property>
@@ -2667,7 +2667,7 @@ background-color: #1C1C1C
     <widget class="QPushButton" name="login_button_cerkle">
      <property name="geometry">
       <rect>
-       <x>75</x>
+       <x>50</x>
        <y>500</y>
        <width>41</width>
        <height>41</height>
@@ -2747,10 +2747,10 @@ background-color: #1C1C1C</string>
     <widget class="QPushButton" name="login_button_text">
      <property name="geometry">
       <rect>
-       <x>125</x>
-       <y>510</y>
-       <width>66</width>
-       <height>21</height>
+       <x>100</x>
+       <y>500</y>
+       <width>111</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
