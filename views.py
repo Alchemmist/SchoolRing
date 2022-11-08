@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
 
 from datacheking import LoginChecker, RegistrChecker
 from services import LoginData, RegistrData
+from bd_work import DataBaseManager
 
 
 class Window(QMainWindow):
@@ -16,12 +17,16 @@ class Window(QMainWindow):
 
         super().__init__()
         uic.loadUi('ui/main.ui', self)
-        # button connect
-        self.init_button()
-        # can user edit data or not
+        self.login_window = uic.loadUi('ui/logining.ui')
+        self.registration_window = uic.loadUi('ui/registration.ui')
+        self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
+        self.error_window = uic.loadUi('ui/error.ui')
+
+        self.connect_button()
+        self.bd_manager = DataBaseManager()
         self.is_logined = False
 
-    def init_button(self):
+    def connect_button(self):
         """Connect button in main window"""
 
         # menu tab
@@ -59,90 +64,96 @@ class Window(QMainWindow):
         """Open login dialog window"""
 
         self.authorization_dialog.hide()
-        self.login_dialog = uic.loadUi('ui/logining.ui')
-        self.login_dialog.show()
-        self.finish_authorization(LoginChecker(self.get_log_data()))
+        self.login_window.show()
+        self.data = self.get_log_data()
+        self.finish_authorization(LoginChecker(self.data))
 
     def registring(self):
         """Open registration dialog window and hide authorization_dialog"""
 
         self.authorization_dialog.hide()
-        self.registration_dialog = uic.loadUi('ui/registration.ui')
-        self.registration_dialog.show()
-        self.finish_authorization(RegistrChecker(self.get_reg_data()))
+        self.registration_window.show()
+        self.data = self.get_reg_data()
+        self.finish_authorization(RegistrChecker(self.data))
 
     def sucsesfully_authorization(self):
         """Finsh sucsesfuly authorization process"""
 
-        self.sucsesfuly_dialog = uic.loadUi('ui/sucsesfully.ui')
-        self.sucsesfuly_dialog.show()
-        self.sucsesfuly_dialog.suc_button.clicked.connect(self.clozing_windows)
-
-        # self.interface_change()
+        self.sucsesfuly_window.show()
+        self.sucsesfuly_window.suc_button.clicked.connect(self.closing_windows)
+        self.bd_manager.add_user(self.data)
         self.is_logined = True
 
-    def clozing_windows(self):
-        if self.login_dialog.isHidden():
-            self.registration_dialog.hide()
-            self.sucsesfuly_dialog.hide()
+    def closing_windows(self):
+        """Close login-window after authorization"""
+
+        if self.login_window.isHidden():
+            self.registration_window.hide()
+            self.sucsesfuly_window.hide()
         else:
-            self.login_dialog.hide()
-            self.sucsesfuly_dialog.hide()
+            self.login_window.hide()
+            self.sucsesfuly_window.hide()
 
     def error_authorization(self):
         """Show error message"""
 
-        self.error_dialog = uic.loadUi('ui/error.ui')
-        self.error_dialog.show()
-        self.error_dialog.er_button.clicked.connect(self.error_dialog.hide)
+        self.error_window.show()
+        self.error_window.er_button.clicked.connect(self.error_window.hide)
 
     def finish_authorization(self, checker: LoginChecker | RegistrChecker):
         """Connect finfish-button for registr and login"""
 
         if type(checker) is RegistrChecker:
-            if checker.status:
-                self.registration_dialog.go_sistem_button_reg.clicked.connect(self.sucsesfully_authorization)
+            if checker.is_correct:
+                self.registration_window.go_sistem_button_reg.clicked.connect(self.sucsesfully_authorization)
             else:
-                self.registration_dialog.go_sistem_button_reg.clicked.connect(self.error_authorization)
+                self.registration_window.go_sistem_button_reg.clicked.connect(self.error_authorization)
         elif type(checker) is LoginChecker:
-            if checker.status:
-                self.login_dialog.go_sistem_button_log.clicked.connect(self.sucsesfully_authorization)
+            if checker.is_correct:
+                self.login_window.go_sistem_button_log.clicked.connect(self.sucsesfully_authorization)
             else:
-                self.login_dialog.go_sistem_button_log.clicked.connect(self.error_authorization)
+                self.login_window.go_sistem_button_log.clicked.connect(self.error_authorization)
 
     def get_log_data(self) -> LoginData:
         """Get user log-data for us checking"""
 
         return LoginData(
-            self.login_dialog.login_lineEdit.text(),
-            self.login_dialog.password_lineEdit.text()
+            self.login_window.login_lineEdit.text(),
+            self.login_window.password_lineEdit.text()
         )
 
     def get_reg_data(self) -> RegistrData:
         """Get user reg-data for us checking"""
 
         return RegistrData(
-            self.registration_dialog.FIO_lineEdit.text(),
-            self.registration_dialog.login_lineEdit.text(),
-            self.registration_dialog.concoct_pw_lineEdit.text(),
-            self.registration_dialog.repeat_pw_lineEdit.text(),
-            self.registration_dialog.school_num_lineEdit.text(),
-            self.registration_dialog.building_num_lineEdit.text(),
-            self.registration_dialog.phone_num_lineEdit.text()
+            self.registration_window.FIO_lineEdit.text(),
+            self.registration_window.login_lineEdit.text(),
+            self.registration_window.concoct_pw_lineEdit.text(),
+            self.registration_window.repeat_pw_lineEdit.text(),
+            self.registration_window.school_num_lineEdit.text(),
+            self.registration_window.building_num_lineEdit.text(),
+            self.registration_window.phone_num_lineEdit.text()
         )
 
     def interface_change(self):
-        self.chonge_login_button_text()
-        self.chonge_login_button_cerkle()
+        """Change login-interface after successful authorization"""
 
-    def chonge_login_button_text(self):
-        self.login_button_text.setText()
+        if self.is_logined:
+            user_name = self.bd_manager.get_user_name()
+            self.chonge_login_button_text(user_name)
+            self.chonge_login_button_circle(user_name)
 
-    def chonge_login_button_cerkle(self):
-        pass
+    def chonge_login_button_text(self, user_name: str):
+        """Change login text button after successful authorization"""
 
-    def save_registratin_data(self):
-        pass
+        if len(user_name) > 8:
+            user_name = user_name[0:9] + '...'
+        self.login_button_text.setText(user_name)
+
+    def chonge_login_button_circle(self, user_name: str):
+        """Change login circle button after successful authorization"""
+
+        self.login_button_cerkle.setText(user_name[0])
 
 
 if __name__ == '__main__':

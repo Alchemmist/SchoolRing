@@ -2667,7 +2667,7 @@ background-color: #1C1C1C
     <widget class="QPushButton" name="login_button_cerkle">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>500</y>
        <width>41</width>
        <height>41</height>
@@ -2747,9 +2747,9 @@ background-color: #1C1C1C</string>
     <widget class="QPushButton" name="login_button_text">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>110</x>
        <y>500</y>
-       <width>111</width>
+       <width>101</width>
        <height>41</height>
       </rect>
      </property>
@@ -2765,8 +2765,12 @@ background-color: #1C1C1C</string>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">color: white</string>
+      <string notr="true">color: white;
+text-align: left</string>
      </property>
      <property name="text">
       <string>Guest</string>

@@ -118,7 +118,7 @@ background-color: #0080ff;</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>356</width>
+      <width>327</width>
       <height>642</height>
      </rect>
     </property>
@@ -127,13 +127,13 @@ background-color: #0080ff;</string>
       <widget class="QLabel" name="label_14">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
+         <horstretch>1</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -149,7 +149,7 @@ background-color: #0080ff;</string>
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>School number</string>
+        <string>School number *</string>
        </property>
       </widget>
      </item>
@@ -179,7 +179,7 @@ background-color: #0080ff;</string>
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -195,7 +195,7 @@ background-color: #0080ff;</string>
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>FIO</string>
+        <string>FIO *</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -267,7 +267,7 @@ color: white</string>
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -283,7 +283,7 @@ color: white</string>
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>Login</string>
+        <string>Login *</string>
        </property>
       </widget>
      </item>
@@ -373,13 +373,13 @@ color: white</string>
       <widget class="QLabel" name="label_16">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
+         <horstretch>1</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -395,7 +395,7 @@ color: white</string>
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>Building number</string>
+        <string>Building number *</string>
        </property>
       </widget>
      </item>
@@ -435,13 +435,13 @@ color: white</string>
       <widget class="QLabel" name="label_18">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
+         <horstretch>1</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -654,7 +654,7 @@ border-radius: 15;
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -670,7 +670,7 @@ border-radius: 15;
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>Repeat the password</string>
+        <string>Repeat the password *</string>
        </property>
       </widget>
      </item>
@@ -684,7 +684,7 @@ border-radius: 15;
        </property>
        <property name="minimumSize">
         <size>
-         <width>290</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -700,7 +700,7 @@ border-radius: 15;
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string> Сoncoct password</string>
+        <string> Сoncoct password *</string>
        </property>
       </widget>
      </item>
@@ -739,6 +739,12 @@ color: white</string>
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="label_10">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -749,6 +755,12 @@ color: white</string>
      </item>
      <item row="5" column="1">
       <widget class="QLabel" name="label_11">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -759,6 +771,12 @@ color: white</string>
      </item>
      <item row="7" column="1">
       <widget class="QLabel" name="label_19">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -769,6 +787,12 @@ color: white</string>
      </item>
      <item row="9" column="1">
       <widget class="QLabel" name="label_20">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -779,6 +803,12 @@ color: white</string>
      </item>
      <item row="11" column="1">
       <widget class="QLabel" name="label_21">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -789,6 +819,12 @@ color: white</string>
      </item>
      <item row="13" column="1">
       <widget class="QLabel" name="label_22">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -799,6 +835,12 @@ color: white</string>
      </item>
      <item row="15" column="1">
       <widget class="QLabel" name="label_23">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
