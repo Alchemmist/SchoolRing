@@ -65,8 +65,8 @@ class Window(QMainWindow):
 
         self.authorization_dialog.hide()
         self.login_window.show()
-        self.data = self.get_log_data()
-        self.finish_authorization(LoginChecker(self.data))
+        self.data_log = self.get_log_data()
+        self.finish_authorization(LoginChecker(self.data_log))
 
     def registring(self):
         """Open registration dialog window and hide authorization_dialog"""
