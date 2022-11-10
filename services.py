@@ -6,6 +6,11 @@ from datetime import time
 from datetime import date
 from datetime import datetime
 
+import threading
+from schedule import *
+
+from bd_work import DataBaseManager
+
 
 class LoginData(NamedTuple):
     """Named tuple with fields for authorization data"""
@@ -29,16 +34,20 @@ class RegistrData(NamedTuple):
 class RingManager:
 
     def __init__(self):
+        self.bd_manager = DataBaseManager()
+
+    def start_work(self):
+        self.bd_manager.get_schedule_today()
+        self.pars_shedule()
+        self.create_schedule()
+
+    def pars_schedule(self):
         pass
 
-    def ring(self):
+    def create_schedule(self):
         pass
 
 
-class Rings:
-
-    def __init__(self):
-        pass
-
-    def play(self, music):
-        pass
+def ringsystem_power():
+    rm = RingManager()
+    rm.start_work()

@@ -1,4 +1,5 @@
 import sys
+import threading
 
 from PyQt6 import uic
 from PyQt6.QtWidgets import (
@@ -6,9 +7,9 @@ from PyQt6.QtWidgets import (
     QMainWindow
 )
 
-from datacheking import LoginChecker, RegistrChecker
-from services import LoginData, RegistrData, RingManager
 from bd_work import DataBaseManager
+from datacheking import LoginChecker, RegistrChecker
+from services import LoginData, RegistrData, ringsystem_power
 
 
 class Window(QMainWindow):
@@ -164,13 +165,17 @@ class Window(QMainWindow):
         self.login_button_text.setText(name)
         self.login_button_cerkle.setText(name[0])
 
-    def ring(self):
-        rm = RingManager()
-        rm.ring()
 
-
-if __name__ == '__main__':
+def windiw_power():
     app = QApplication(sys.argv)
     window = Window()
     window.show()
     sys.exit(app.exec())
+
+
+if __name__ == '__main__':
+    thr1 = threading.Thread(target=windiw_power)
+    thr2 = threading.Thread(target=ringsystem_power)
+
+    thr1.start()
+    thr2.start()
