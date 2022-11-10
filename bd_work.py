@@ -12,12 +12,29 @@ class DataBaseManager:
 
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'INSERT INTO users (login, password, school_num, building_num, phone_num, name) ' \
-                 f'VALUES ({data.repeat_password}, {data.school_num}, {data.login}, {data.repeat_password}, '\
-                 f'{data.building_num}, {data.phone_num}, {data.FIO})'
-        print(comand)
+        comand = f'INSERT INTO users(login, password, school_num, building_num, phone_num, FIO) ' \
+                 f'VALUES("{data.login}", "{data.repeat_password}", "{int(data.school_num)}", "{int(data.building_num)}", ' \
+                 f'"{data.phone_num}", "{data.FIO}")'
+
         cur.execute(comand).fetchall()
         con.commit()
 
     def get_user_name(self, id):
         pass
+
+    def get_all_logins(self) -> list:
+        """Get a list of logins of all existing users"""
+
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = 'SELECT login FROM users'
+        logins = [i[0] for i in cur.execute(comand).fetchall()]
+        return logins
+
+    def get_password(self, login):
+        """Finds the user's password by login"""
+
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT password FROM users WHERE login={login}'
+        return cur.execute(comand).fetchall()
