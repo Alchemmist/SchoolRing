@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (
     QMainWindow
 )
 
-from bd_work import DataBaseManager
+from base_of_data import *
 from datacheking import LoginChecker, RegistrChecker
 from services import LoginData, RegistrData, ringsystem_power
 
@@ -23,7 +23,6 @@ class Window(QMainWindow):
 
         self.connect_button()
         self.bd_manager = DataBaseManager()
-        self.ring()
 
     def load_ui(self):
         self.login_window = uic.loadUi('ui/logining.ui')
@@ -179,3 +178,5 @@ if __name__ == '__main__':
 
     thr1.start()
     thr2.start()
+    thr1.join()
+    thr2.join()

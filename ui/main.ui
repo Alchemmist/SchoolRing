@@ -9,9 +9,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>788</width>
+    <width>791</width>
     <height>580</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1</width>
+    <height>1</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -42,7 +54,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="label">
@@ -88,7 +100,7 @@ border-radius: 18;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
@@ -119,7 +131,7 @@ border-radius: 18;
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1037</width>
+         <width>627</width>
          <height>382</height>
         </rect>
        </property>
@@ -139,8 +151,8 @@ border-radius: 18;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border-radius: 15px, white;
-background-color: #333333;</string>
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -378,7 +390,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255);</string>
+background-color: rgba(0,127,255, 60);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -616,7 +628,7 @@ background-color: rgb(255,160,0, 0);
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255);</string>
+background-color: rgba(0,127,255, 60);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -838,23 +850,551 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item>
-         <widget class="QFrame" name="frame_5">
+       </layout>
+       <zorder>frame_6</zorder>
+       <zorder>frame_3</zorder>
+       <zorder>frame_2</zorder>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>140</y>
+        <width>291</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../icons/background-image.png</pixmap>
+      </property>
+     </widget>
+     <zorder>label_4</zorder>
+     <zorder>scrollArea</zorder>
+     <zorder>label</zorder>
+    </widget>
+    <widget class="QWidget" name="Timetable_page">
+     <widget class="QScrollArea" name="scrollArea_3">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>50</y>
+        <width>541</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>524</width>
+         <height>404</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="6" column="0">
+         <widget class="QFrame" name="frame_25">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="minimumSize">
            <size>
-            <width>199</width>
-            <height>0</height>
+            <width>150</width>
+            <height>50</height>
            </size>
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255);</string>
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_105">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>08.03.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QFrame" name="frame_24">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_104">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>08.03.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QFrame" name="frame_12">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_65">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>8 марта</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QFrame" name="frame_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_60">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>День программисата</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_58">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>12.11.2022</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QFrame" name="frame_11">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_64">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>08.03.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_59">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>31.12.2022</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QFrame" name="frame_8">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_61">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>Новый год</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QFrame" name="frame_10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -865,74 +1405,16 @@ background-color: rgb(0,127,255);</string>
           <widget class="QLabel" name="label_63">
            <property name="geometry">
             <rect>
-             <x>20</x>
+             <x>0</x>
              <y>10</y>
-             <width>141</width>
+             <width>371</width>
              <height>31</height>
             </rect>
            </property>
            <property name="font">
             <font>
-             <family>Yandex Sans Text Bold</family>
+             <family>Yandex Sans Display Regular</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Урок - 5</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_64">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>80</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>08:29</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_65">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>110</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
              <weight>50</weight>
              <bold>false</bold>
             </font>
@@ -943,156 +1425,34 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>Уведомление</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_66">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>200</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Пираты карипскогот моря</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_67">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>170</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>08:30</string>
+            <string>23 февраля</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
-          </widget>
-          <widget class="QLabel" name="label_68">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>290</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Ploho, Город устал</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
            <property name="wordWrap">
             <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_69">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>260</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>09:10</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </widget>
         </item>
-        <item>
-         <widget class="QFrame" name="frame_4">
+        <item row="2" column="0">
+         <widget class="QFrame" name="frame_9">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="minimumSize">
            <size>
-            <width>199</width>
-            <height>0</height>
+            <width>150</width>
+            <height>50</height>
            </size>
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255);</string>
+background-color: rgba(0,127,255, 60);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -1100,201 +1460,18 @@ background-color: rgb(0,127,255);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_56">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>10</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Урок - 6</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_57">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>80</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>08:29</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_58">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>110</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Уведомление</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_59">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>200</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Пираты карипскогот моря</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_60">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>170</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Text Bold</family>
-             <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>08:30</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_61">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>290</y>
-             <width>161</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>Ploho, Город устал</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_62">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>260</y>
-             <width>141</width>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
              <height>31</height>
             </rect>
            </property>
            <property name="font">
             <font>
-             <family>Yandex Sans Text Bold</family>
+             <family>Yandex Sans Display</family>
              <pointsize>16</pointsize>
              <weight>75</weight>
              <bold>true</bold>
@@ -1306,1270 +1483,328 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>09:10</string>
+            <string>23.02.2023</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QFrame" name="frame_26">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_106">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>08.03.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QFrame" name="frame_27">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_107">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>8 марта</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QFrame" name="frame_28">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_108">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>Новый год</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QFrame" name="frame_29">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_109">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>371</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>23 февраля</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </widget>
         </item>
        </layout>
-       <zorder>frame_6</zorder>
-       <zorder>frame_3</zorder>
-       <zorder>frame_5</zorder>
-       <zorder>frame_2</zorder>
-       <zorder>frame_4</zorder>
       </widget>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_66">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>150</y>
-        <width>301</width>
-        <height>371</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../../Downloads/casual-life-3d-white-bell-with-blue-ribbon.png</pixmap>
-      </property>
-     </widget>
-     <zorder>label_2</zorder>
-     <zorder>scrollArea</zorder>
-     <zorder>label</zorder>
-    </widget>
-    <widget class="QWidget" name="Timetable_page">
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>40</y>
-        <width>221</width>
-        <height>61</height>
+        <x>250</x>
+        <y>20</y>
+        <width>71</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Yandex Sans Display Bold</family>
+        <family>Yandex Sans Display Thin</family>
         <pointsize>16</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">border: 1px #0080ff;
-color: white;
-background-color: #0080ff;
-border-radius: 18;
-padding: 20px;
+       <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
 </string>
       </property>
-      <property name="editable">
-       <bool>false</bool>
+      <property name="text">
+       <string>Date</string>
       </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>18</height>
-       </size>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
-      <property name="frame">
-       <bool>false</bool>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
-      <item>
-       <property name="text">
-        <string>Понедельник</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Вторник</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Среда</string>
-       </property>
-       <property name="icon">
-        <iconset theme="1">
-         <normaloff>.</normaloff>.</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Четверг</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Пятница</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Суббота</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Воскресенье</string>
-       </property>
-      </item>
      </widget>
-     <widget class="QStackedWidget" name="stackedWidget_2">
+     <widget class="QLabel" name="label_102">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>30</y>
-        <width>571</width>
-        <height>551</height>
-       </rect>
-      </property>
-      <widget class="QWidget" name="monday">
-       <widget class="QScrollArea" name="scrollArea_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>361</width>
-          <height>531</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <property name="lineWidth">
-         <number>1</number>
-        </property>
-        <property name="verticalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
-        </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
-        </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_3">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>340</width>
-           <height>696</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QFrame" name="frame_12">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_98">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 1</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_99">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_100">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_7">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_77">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 2</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_78">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_79">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_8">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_83">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 3</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_84">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_85">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_9">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_86">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 4</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_87">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>10:00</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_88">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>11:00</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_14">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_104">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 5</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_105">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>11:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_106">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>12:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_15">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_107">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 6</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_108">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>13:00</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_109">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>14:00</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_10">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_92">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 7</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_93">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_94">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_13">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_101">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 8</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_102">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_103">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_11">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>322</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-radius: 15;
-background-color: rgb(0,127,255, 150);</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <widget class="QLabel" name="label_95">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>20</y>
-               <width>141</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Text Bold</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>Урок - 9</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_96">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>08:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_97">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>20</y>
-               <width>71</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Yandex Sans Display</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-             </property>
-             <property name="text">
-              <string>09:30</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
-          </item>
-         </layout>
-         <zorder>frame_11</zorder>
-         <zorder>frame_13</zorder>
-         <zorder>frame_9</zorder>
-         <zorder>frame_14</zorder>
-         <zorder>frame_10</zorder>
-         <zorder>frame_15</zorder>
-         <zorder>frame_7</zorder>
-         <zorder>frame_12</zorder>
-         <zorder>frame_8</zorder>
-        </widget>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tusday"/>
-      <widget class="QWidget" name="wensday"/>
-      <widget class="QWidget" name="thursday"/>
-      <widget class="QWidget" name="fraiday"/>
-      <widget class="QWidget" name="saturday"/>
-      <widget class="QWidget" name="sunday"/>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>580</x>
-        <y>120</y>
-        <width>251</width>
-        <height>41</height>
+        <x>510</x>
+        <y>20</y>
+        <width>101</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Yandex Sans Display Bold</family>
+        <family>Yandex Sans Display Thin</family>
+        <pointsize>16</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>Template</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="login_button_cerkle_2">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>290</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yandex Sans Text</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -2578,66 +1813,193 @@ background-color: rgb(255,160,0, 0);
       <property name="cursor">
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
+      <property name="styleSheet">
+       <string notr="true">border-radius : 10; 
+border : 0px solid white;
+background-color: #0080ff;
+color: white</string>
       </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
+      <property name="text">
+       <string>New</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="login_button_cerkle_3">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>290</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yandex Sans Text</family>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: white;
+       <string notr="true">border-radius : 10; 
+border : 0px solid white;
 background-color: #0080ff;
-border-radius: 14;
-text-align: left;
-padding: 10px;</string>
+color: white</string>
       </property>
       <property name="text">
-       <string>Редактировать</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../Downloads/icons8-кончик-карандаша-50.png</normaloff>../../Downloads/icons8-кончик-карандаша-50.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
+       <string>Edit</string>
       </property>
      </widget>
-     <zorder>stackedWidget_2</zorder>
-     <zorder>comboBox</zorder>
-     <zorder>pushButton</zorder>
     </widget>
     <widget class="QWidget" name="Template_page">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QScrollArea" name="scrollArea_5">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>205</y>
-        <width>75</width>
-        <height>23</height>
+        <x>190</x>
+        <y>30</y>
+        <width>571</width>
+        <height>531</height>
        </rect>
       </property>
-      <property name="text">
-       <string>PushButton</string>
+      <property name="widgetResizable">
+       <bool>true</bool>
       </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>325</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>569</width>
+         <height>529</height>
+        </rect>
+       </property>
+       <widget class="QFrame" name="frame_30">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>171</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+border-radius: 15;
+background-color: rgba(255, 85, 0, 60);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_110">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>60</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Yandex Sans Text Bold</family>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+         </property>
+         <property name="text">
+          <string>Новогодний</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_31">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>0</y>
+          <width>171</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 15;
+background-color: rgba(0,170, 0, 60);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_113">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>60</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Yandex Sans Text Bold</family>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+         </property>
+         <property name="text">
+          <string>Новогодний</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>

@@ -1,5 +1,5 @@
 from services import LoginData, RegistrData
-from bd_work import DataBaseManager
+from base_of_data import DataBaseManager
 
 
 class LoginChecker:

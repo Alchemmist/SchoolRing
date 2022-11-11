@@ -40,8 +40,7 @@ class DataBaseManager:
         return cur.execute(comand).fetchall()
 
     def get_schedule_today(self):
-        pass
-        # con = sqlite3.connect('data_base/schoolring.sqlite')
-        # cur = con.cursor()
-        # comand = f'SELECT password FROM users WHERE login={login}'
-        # return cur.execute(comand).fetchall()
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT play_time, music FROM schedule WHERE template=1'
+        return cur.execute(comand).fetchall()
