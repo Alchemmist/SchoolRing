@@ -4,12 +4,14 @@ import threading
 from PyQt6 import uic
 from PyQt6.QtWidgets import (
     QApplication,
-    QMainWindow
+    QMainWindow,
+    QFrame,
+    QVBoxLayout
 )
 
 from base_of_data import *
 from datacheking import LoginChecker, RegistrChecker
-from services import LoginData, RegistrData, ringsystem_power, today_sched
+from services import LoginData, RegistrData, ringsystem_power
 from ui.frame_home import HomeFrame
 from time import sleep
 
@@ -175,11 +177,13 @@ class Window(QMainWindow):
         self.set_item_to_widget()
 
     def set_items_to_scrolarea(self):
-        sleep(1)
-        print(today_sched)
-        for i in today_sched:
-            self.scrollArea.setWidget(HomeFrame())
+        self.vbox = QVBoxLayout()
+        self.today_sched = self.bd_manager.get_schedule_today()
+        for i in range(2):
+            self.widget = uic.loadUi('ui/frame_for_home.ui')
 
+            self.Scroll.setWidgetResizable(True)
+            self.scroll.setWidget(self.widget)
 
 def windiw_power():
     app = QApplication(sys.argv)
