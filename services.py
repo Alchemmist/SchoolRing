@@ -16,7 +16,7 @@ from time import time, sleep
 from threading import *
 
 global today_sched
-today_sched = 0
+
 
 
 class LoginData(NamedTuple):
@@ -45,8 +45,9 @@ class RingManager:
 
     def start_work(self):
         self.today_sched = self.bd_manager.get_schedule_today()
+
         today_sched = self.today_sched.copy()
-        print(today_sched)
+        print(self.today_sched)
         self.go_schedule()
 
     def go_schedule(self):

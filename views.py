@@ -10,6 +10,8 @@ from PyQt6.QtWidgets import (
 from base_of_data import *
 from datacheking import LoginChecker, RegistrChecker
 from services import LoginData, RegistrData, ringsystem_power, today_sched
+from ui.frame_home import HomeFrame
+from time import sleep
 
 
 class Window(QMainWindow):
@@ -23,6 +25,10 @@ class Window(QMainWindow):
 
         self.connect_button()
         self.bd_manager = DataBaseManager()
+        self.set_data_on_interface()
+
+    def set_data_on_interface(self):
+        self.set_items_to_scrolarea()
 
     def load_ui(self):
         self.login_window = uic.loadUi('ui/logining.ui')
@@ -169,8 +175,10 @@ class Window(QMainWindow):
         self.set_item_to_widget()
 
     def set_items_to_scrolarea(self):
+        sleep(1)
+        print(today_sched)
         for i in today_sched:
-
+            self.scrollArea.setWidget(HomeFrame())
 
 
 def windiw_power():
@@ -184,7 +192,7 @@ if __name__ == '__main__':
     vew_window = threading.Thread(target=windiw_power)
     ring_power = threading.Thread(target=ringsystem_power)
 
-    vew_window.start()
     ring_power.start()
+    vew_window.start()
     vew_window.join()
     ring_power.join()
