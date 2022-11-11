@@ -164,6 +164,13 @@ class Window(QMainWindow):
         self.login_button_text.setText(name)
         self.login_button_cerkle.setText(name[0])
 
+    def set_items_to_home(self):
+        self.set_items_to_scrolarea()
+        self.set_item_to_widget()
+
+    def set_items_to_scrolarea(self):
+        self.bd_manager
+
 
 def windiw_power():
     app = QApplication(sys.argv)

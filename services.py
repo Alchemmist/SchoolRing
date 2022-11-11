@@ -13,6 +13,8 @@ import base_of_data
 
 from time import time, sleep
 
+from threading import *
+
 
 class LoginData(NamedTuple):
     """Named tuple with fields for authorization data"""
@@ -40,6 +42,7 @@ class RingManager:
 
     def start_work(self):
         self.today_sched = self.bd_manager.get_schedule_today()
+        global self.today_sched
         self.go_schedule()
 
     def go_schedule(self):
