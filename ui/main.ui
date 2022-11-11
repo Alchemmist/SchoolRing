@@ -54,7 +54,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="label">
@@ -883,7 +883,7 @@ background-color: rgb(255,160,0, 0);
         <x>220</x>
         <y>50</y>
         <width>541</width>
-        <height>231</height>
+        <height>451</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -908,23 +908,23 @@ background-color: rgb(255,160,0, 0);
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-65</y>
          <width>524</width>
-         <height>404</height>
+         <height>516</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="6" column="0">
-         <widget class="QFrame" name="frame_25">
+        <item row="3" column="1">
+         <widget class="QFrame" name="frame_12">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="minimumSize">
            <size>
-            <width>150</width>
+            <width>1</width>
             <height>50</height>
            </size>
           </property>
@@ -938,21 +938,21 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_105">
+          <widget class="QLabel" name="label_65">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>0</x>
              <y>10</y>
-             <width>131</width>
+             <width>361</width>
              <height>31</height>
             </rect>
            </property>
            <property name="font">
             <font>
-             <family>Yandex Sans Display</family>
+             <family>Yandex Sans Display Regular</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
@@ -961,7 +961,7 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>08.03.2023</string>
+            <string>8 марта</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1030,124 +1030,8 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QFrame" name="frame_12">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>1</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius: 15;
-background-color: rgba(0,127,255, 60);</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_65">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>10</y>
-             <width>361</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display Regular</family>
-             <pointsize>16</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>8 марта</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QFrame" name="frame_7">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>1</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius: 15;
-background-color: rgba(0,127,255, 60);</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_60">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>10</y>
-             <width>361</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Yandex Sans Display Regular</family>
-             <pointsize>16</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: white;
-background-color: rgb(255,160,0, 0);
-</string>
-           </property>
-           <property name="text">
-            <string>День программисата</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QFrame" name="frame_4">
+        <item row="7" column="0">
+         <widget class="QFrame" name="frame_25">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1170,7 +1054,7 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_58">
+          <widget class="QLabel" name="label_105">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1193,7 +1077,65 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>12.11.2022</string>
+            <string>08.03.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QFrame" name="frame_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_62">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>23.02.2023</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1262,8 +1204,8 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QFrame" name="frame_5">
+        <item row="6" column="0">
+         <widget class="QFrame" name="frame_26">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1286,7 +1228,7 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_59">
+          <widget class="QLabel" name="label_106">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1309,7 +1251,7 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>31.12.2022</string>
+            <string>08.03.2023</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1436,8 +1378,8 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QFrame" name="frame_9">
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame_5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1460,7 +1402,7 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_62">
+          <widget class="QLabel" name="label_59">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1483,7 +1425,7 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>23.02.2023</string>
+            <string>31.12.2022</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1494,8 +1436,8 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item row="5" column="0">
-         <widget class="QFrame" name="frame_26">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1518,7 +1460,7 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_106">
+          <widget class="QLabel" name="label_58">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1541,7 +1483,181 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>08.03.2023</string>
+            <string>12.11.2022</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QFrame" name="frame_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_60">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>День программисата</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QFrame" name="frame_28">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_108">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>361</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>Новый год</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QFrame" name="frame_29">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_109">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>371</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display Regular</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>23 февраля</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1610,8 +1726,124 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
+        <item row="8" column="0">
+         <widget class="QFrame" name="frame_13">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_67">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>31.12.2022</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QFrame" name="frame_14">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 15;
+background-color: rgba(0,127,255, 60);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_68">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>131</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Yandex Sans Display</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(255,160,0, 0);
+</string>
+           </property>
+           <property name="text">
+            <string>23.02.2023</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </item>
         <item row="5" column="1">
-         <widget class="QFrame" name="frame_28">
+         <widget class="QFrame" name="frame_15">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1634,7 +1866,7 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_108">
+          <widget class="QLabel" name="label_69">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -1657,7 +1889,7 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>Новый год</string>
+            <string>День программисата</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1668,8 +1900,8 @@ background-color: rgb(255,160,0, 0);
           </widget>
          </widget>
         </item>
-        <item row="6" column="1">
-         <widget class="QFrame" name="frame_29">
+        <item row="8" column="1">
+         <widget class="QFrame" name="frame_16">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1692,12 +1924,12 @@ background-color: rgba(0,127,255, 60);</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_109">
+          <widget class="QLabel" name="label_77">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>10</y>
-             <width>371</width>
+             <width>361</width>
              <height>31</height>
             </rect>
            </property>
@@ -1715,7 +1947,7 @@ background-color: rgb(255,160,0, 0);
 </string>
            </property>
            <property name="text">
-            <string>23 февраля</string>
+            <string>8 марта</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1797,7 +2029,7 @@ background-color: rgb(255,160,0, 0);
       <property name="geometry">
        <rect>
         <x>230</x>
-        <y>290</y>
+        <y>520</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -1827,7 +2059,7 @@ color: white</string>
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>290</y>
+        <y>520</y>
         <width>161</width>
         <height>31</height>
        </rect>

@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import (
 
 from base_of_data import *
 from datacheking import LoginChecker, RegistrChecker
-from services import LoginData, RegistrData, ringsystem_power
+from services import LoginData, RegistrData, ringsystem_power, today_sched
 
 
 class Window(QMainWindow):
@@ -169,7 +169,8 @@ class Window(QMainWindow):
         self.set_item_to_widget()
 
     def set_items_to_scrolarea(self):
-        self.bd_manager
+        for i in today_sched:
+
 
 
 def windiw_power():
@@ -180,10 +181,10 @@ def windiw_power():
 
 
 if __name__ == '__main__':
-    thr1 = threading.Thread(target=windiw_power)
-    thr2 = threading.Thread(target=ringsystem_power)
+    vew_window = threading.Thread(target=windiw_power)
+    ring_power = threading.Thread(target=ringsystem_power)
 
-    thr1.start()
-    thr2.start()
-    thr1.join()
-    thr2.join()
+    vew_window.start()
+    ring_power.start()
+    vew_window.join()
+    ring_power.join()
