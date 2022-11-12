@@ -22,12 +22,12 @@ class DataBaseManager:
     def get_user_name(self, id):
         pass
 
-    def get_all_logins(self) -> list:
+    def serch_logins(self, login) -> list:
         """Get a list of logins of all existing users"""
 
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = 'SELECT login FROM users'
+        comand = f'SELECT login FROM users WHERE login="{login}"'
         logins = [i[0] for i in cur.execute(comand).fetchall()]
         return logins
 

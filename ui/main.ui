@@ -64,7 +64,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="nearest_label">
@@ -1445,9 +1445,9 @@ color: white</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-175</y>
-         <width>601</width>
-         <height>726</height>
+         <y>0</y>
+         <width>556</width>
+         <height>716</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">

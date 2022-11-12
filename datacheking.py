@@ -8,18 +8,27 @@ class LoginChecker:
     def __init__(self, data: LoginData):
         self.data = data
         self.bd_manager = DataBaseManager()
-        self.is_correct = True if self.check_data() else False
+        if self.check_data():
+            self.is_correct = True
+        else:
+            self.is_correct = False
 
     def check_data(self) -> bool:
-        if self.search_login() and self.check_password():
-            return True
-        return False
+        print(1)
+        if self.search_login():
+            print(self.search_login())
+            if self.check_password():
+                print(self.check_password())
+                return True
+        else:
+            print(777)
+            return False
 
     def search_login(self) -> bool:
         """Looks for a login if it does not find it, then the user needs to register"""
 
-        logins = self.bd_manager.get_all_logins()
-        if self.data.login in logins:
+        login = self.bd_manager.serch_logins(self.data.login)
+        if login:
             return True
         return False
 
@@ -63,7 +72,7 @@ class RegistrChecker:
     def check_login(self) -> bool:
         """Checks the uniqueness of the login"""
 
-        logins = self.bd_manager.get_all_logins()
+        logins = self.bd_manager.serch_logins()
         if self.data.login not in logins:
             return True
         return False
