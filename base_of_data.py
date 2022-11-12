@@ -42,5 +42,5 @@ class DataBaseManager:
     def get_schedule_today(self):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'SELECT play_time, music, status, on_with FROM schedule WHERE template=1'
+        comand = f'SELECT play_time, music, title FROM schedule WHERE template=2'
         return cur.execute(comand).fetchall()

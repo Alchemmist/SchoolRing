@@ -15,8 +15,7 @@ from time import time, sleep
 
 from threading import *
 
-global today_sched
-
+import time
 
 
 class LoginData(NamedTuple):
@@ -47,12 +46,11 @@ class RingManager:
         self.today_sched = self.bd_manager.get_schedule_today()
 
         today_sched = self.today_sched.copy()
-        print(self.today_sched)
         self.go_schedule()
 
     def go_schedule(self):
         for i in self.today_sched:
-            schedule.every().day.at(i[0]).do(ring, 'kapla.mp3')
+            schedule.every().day.at(i[0]).do(ring, 'atac_titan_opening.mp3')
 
         # test:
         # schedule.every(3).seconds.do(ring, 'kapla.mp3')
@@ -68,3 +66,21 @@ def ringsystem_power():
 
 def ring(name_music):
     AudioPlayer(f'music/{name_music}').play(block=True)
+
+
+def serch_time_for_nearest_ring(schedule: list) -> time:
+    a = time.ctime().split()[3].split(':')
+    now = int(a[0]) * 60 + int(a[1])
+    closeness = None
+    music = ''
+    for i in schedule:
+        tm = int(i[0].split(':')[0]) * 60 + int(i[0].split(':')[1])
+        difference = tm - now
+        try:
+            if difference > 0 and difference < closeness:
+                closeness = difference
+                music = i[1]
+        except TypeError:
+            closeness = difference
+            music = i[1]
+    return closeness, music

@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>loginig</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/main_icon.png</normaloff>../icons/main_icon.png</iconset>
+  </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>

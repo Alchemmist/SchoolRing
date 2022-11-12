@@ -6,14 +6,28 @@ from PyQt6.QtWidgets import (
     QApplication,
     QMainWindow,
     QFrame,
-    QVBoxLayout
+    QHBoxLayout,
+    QGroupBox
 )
+from PyQt6.uic.properties import QtWidgets
 
 from base_of_data import *
 from datacheking import LoginChecker, RegistrChecker
-from services import LoginData, RegistrData, ringsystem_power
-from ui.frame_home import HomeFrame
-from time import sleep
+from services import LoginData, RegistrData, ringsystem_power, serch_time_for_nearest_ring
+
+import datetime
+import time
+
+
+translator_of_weekday = {
+            0: 'Понедельник',
+            1: 'Вторник',
+            2: 'Среда',
+            3: 'Четверг',
+            4: 'Пятница',
+            5: 'Суббота',
+            6: 'Воскресенье',
+        }
 
 
 class Window(QMainWindow):
@@ -21,6 +35,10 @@ class Window(QMainWindow):
         """Create mainwindow"""
 
         super().__init__()
+        uic.loadUi('ui/main.ui', self)
+        self.initUI()
+
+    def initUI(self):
         uic.loadUi('ui/main.ui', self)
         self.is_logined = False
         self.load_ui()
@@ -31,6 +49,8 @@ class Window(QMainWindow):
 
     def set_data_on_interface(self):
         self.set_items_to_scrolarea()
+        self.set_item_to_today_widget()
+        self.set_item_to_nearest_widget()
 
     def load_ui(self):
         self.login_window = uic.loadUi('ui/logining.ui')
@@ -54,6 +74,7 @@ class Window(QMainWindow):
         """Switching tub to Home page"""
 
         self.stackedWidget.setCurrentIndex(0)
+        self.set_item_to_nearest_widget()
 
     def go_timetable(self):
         """Switching tub to Timetable page"""
@@ -177,13 +198,36 @@ class Window(QMainWindow):
         self.set_item_to_widget()
 
     def set_items_to_scrolarea(self):
-        self.vbox = QVBoxLayout()
         self.today_sched = self.bd_manager.get_schedule_today()
-        for i in range(2):
-            self.widget = uic.loadUi('ui/frame_for_home.ui')
+        self.today_sched = sorted(self.today_sched, key=lambda x: x[0])
+        print(self.today_sched)
+        layout = QHBoxLayout()
+        for i in self.today_sched:
+            widget = uic.loadUi('ui/frame_for_home.ui')
+            widget.title.setText(i[2])
+            widget.time.setText(i[0])
+            widget.music.setText(i[1])
+            layout.addWidget(widget)
+        group_box = QGroupBox()
+        group_box.setStyleSheet(
+            'border: 0px'
+        )
+        group_box.setLayout(layout)
+        self.scrollArea.setWidget(group_box)
+        self.scrollArea.setWidgetResizable(True)
 
-            self.Scroll.setWidgetResizable(True)
-            self.scroll.setWidget(self.widget)
+    def set_item_to_today_widget(self):
+        self.today_label.setText(
+            f'{translator_of_weekday[datetime.datetime.today().weekday()]}\n'
+            f'{datetime.date.today().strftime("%d-%m-%Y")}'
+        )
+
+    def set_item_to_nearest_widget(self):
+        tm, music = serch_time_for_nearest_ring(self.today_sched)
+        self.nearest_label.setText(
+            f'Через {tm} минут прозвенит {music[0:-4]}'
+        )
+
 
 def windiw_power():
     app = QApplication(sys.argv)
