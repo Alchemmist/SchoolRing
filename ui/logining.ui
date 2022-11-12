@@ -123,7 +123,7 @@ color: white</string>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>140</y>
      <width>171</width>
      <height>41</height>

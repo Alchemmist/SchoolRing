@@ -98,7 +98,8 @@ class Window(QMainWindow):
 
         self.authorization_window.hide()
         self.login_window.show()
-        self.finish_logining()
+        # self.try_logining()
+        self.login_window.go_sistem_button_log.clicked.connect(self.finish_login)
 
     def registring(self):
         """Open registration dialog window and hide authorization_dialog"""
@@ -142,19 +143,30 @@ class Window(QMainWindow):
         """Connect finfish-button for registr and login"""
 
         self.data = self.get_reg_data()
+        print(f'В поля ввели -> {self.data}')
         checker = RegistrChecker(self.data)
+        print(f'Проверка пройдена -> {checker.is_correct}')
         if checker.is_correct:
             self.sucsesfully_registration()
         else:
             self.error_authorization()
 
-    def finish_logining(self):
+    def finish_login(self):
         self.data = self.get_log_data()
         checker = LoginChecker(self.data)
         if checker.is_correct:
-            self.login_window.go_sistem_button_log.clicked.connect(self.sucsesfully_login)
+            self.sucsesfully_login()
         else:
-            self.login_window.go_sistem_button_log.clicked.connect(self.error_authorization)
+            self.error_authorization()
+
+    def try_logining(self):
+        pass
+        # self.data = self.get_log_data()
+        # checker = LoginChecker(self.data)
+        # if checker.is_correct:
+        # self.login_window.go_sistem_button_log.clicked.connect(self.finish_login)
+        # else:
+        #     self.login_window.go_sistem_button_log.clicked.connect(self.error_authorization)
 
     def get_log_data(self) -> LoginData:
         """Get user log-data for us checking"""

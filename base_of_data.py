@@ -36,7 +36,7 @@ class DataBaseManager:
 
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'SELECT password FROM users WHERE login={login}'
+        comand = f'SELECT password FROM users WHERE login="{login}"'
         return cur.execute(comand).fetchall()
 
     def get_schedule_today(self):

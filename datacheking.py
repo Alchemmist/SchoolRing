@@ -8,34 +8,26 @@ class LoginChecker:
     def __init__(self, data: LoginData):
         self.data = data
         self.bd_manager = DataBaseManager()
-        if self.check_data():
-            self.is_correct = True
-        else:
-            self.is_correct = False
+        self.is_correct = self._check_data()
 
-    def check_data(self) -> bool:
-        print(1)
-        if self.search_login():
-            print(self.search_login())
-            if self.check_password():
-                print(self.check_password())
-                return True
-        else:
-            print(777)
-            return False
-
-    def search_login(self) -> bool:
-        """Looks for a login if it does not find it, then the user needs to register"""
-
-        login = self.bd_manager.serch_logins(self.data.login)
-        if login:
+    def _check_data(self) -> bool:
+        if self._search_login() and self._check_password():
             return True
         return False
 
-    def check_password(self) -> bool:
+    def _search_login(self) -> bool:
+        """Looks for a login if it does not find it, then the user needs to register"""
+
+        login_after_serch = self.bd_manager.serch_logins(self.data.login)
+        if len(login_after_serch) > 0:
+            return True
+        return False
+
+    def _check_password(self) -> bool:
         """Checks if the user's password is correct"""
 
-        if self.data.password == self.bd_manager.get_password(self.data.login):
+        password_after_serch = self.bd_manager.get_password(self.data.login)
+        if self.data.password == password_after_serch[0][0]:
             return True
         return False
 
@@ -44,13 +36,31 @@ class RegistrChecker:
     """Checks the correctness of data during registration"""
 
     def __init__(self, data: RegistrData):
+        print(1)
         self.bd_manager = DataBaseManager()
+        print(2)
         self.data = data
-        self.is_correct = True if self.check_data() else False
+        print(3)
+        self.is_correct = self._check_data()
+        print(4)
 
-    def check_data(self) -> bool:
+    def _check_data(self) -> bool:
         """Checks all param data during registration"""
 
+        print('-0-')
+
+        print(self.check_login())
+        print('-1-')
+        print(self.check_password())
+        print('-2-')
+        print(self.check_FIO())
+        print('-3-')
+        print(self.check_school_and_building_num())
+        print('-4-')
+        print(self.check_phone_number())
+        print('-5-')
+        print(self.check_login())
+        print('-6-')
         if (
                 self.check_login() and
                 self.check_password() and
@@ -72,12 +82,14 @@ class RegistrChecker:
     def check_login(self) -> bool:
         """Checks the uniqueness of the login"""
 
-        logins = self.bd_manager.serch_logins()
-        if self.data.login not in logins:
+        logins = self.bd_manager.serch_logins(self.data.login)
+        if not logins:
             return True
         return False
 
     def check_password(self) -> bool:
+        print(111, self._repeat_password())
+        print(222, self._savity_password())
         if self._repeat_password() and self._savity_password():
             return True
         return False
