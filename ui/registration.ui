@@ -121,7 +121,7 @@ background-color: #0080ff;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-3</y>
       <width>327</width>
       <height>642</height>
      </rect>
@@ -256,6 +256,9 @@ background-color: #0080ff;</string>
 border: 2px solid white;
 color: white</string>
        </property>
+       <property name="text">
+        <string/>
+       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
@@ -319,6 +322,9 @@ color: white</string>
 border: 2px solid white;
 color: white</string>
        </property>
+       <property name="text">
+        <string/>
+       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
@@ -351,6 +357,9 @@ color: white</string>
         <string notr="true">border-radius: 9; 
 border: 2px solid white;
 color: white</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -493,6 +502,9 @@ color: white</string>
 border: 2px solid white;
 color: white</string>
        </property>
+       <property name="text">
+        <string/>
+       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
@@ -525,6 +537,9 @@ color: white</string>
         <string notr="true">border-radius: 9; 
 border: 2px solid white;
 color: white</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -574,6 +589,9 @@ color: white</string>
         <string notr="true">border-radius: 9; 
 border: 2px solid white;
 color: white</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -735,6 +753,9 @@ border-radius: 15;
         <string notr="true">border-radius: 9; 
 border: 2px solid white;
 color: white</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

@@ -36,31 +36,12 @@ class RegistrChecker:
     """Checks the correctness of data during registration"""
 
     def __init__(self, data: RegistrData):
-        print(1)
         self.bd_manager = DataBaseManager()
-        print(2)
         self.data = data
-        print(3)
         self.is_correct = self._check_data()
-        print(4)
 
     def _check_data(self) -> bool:
         """Checks all param data during registration"""
-
-        print('-0-')
-
-        print(self.check_login())
-        print('-1-')
-        print(self.check_password())
-        print('-2-')
-        print(self.check_FIO())
-        print('-3-')
-        print(self.check_school_and_building_num())
-        print('-4-')
-        print(self.check_phone_number())
-        print('-5-')
-        print(self.check_login())
-        print('-6-')
         if (
                 self.check_login() and
                 self.check_password() and
@@ -88,8 +69,6 @@ class RegistrChecker:
         return False
 
     def check_password(self) -> bool:
-        print(111, self._repeat_password())
-        print(222, self._savity_password())
         if self._repeat_password() and self._savity_password():
             return True
         return False
@@ -122,7 +101,7 @@ class RegistrChecker:
                 check_num and
                 len(self.data.concoct_password) > 8
         ):
-            raise True
+            return True
         return False
 
     def check_school_and_building_num(self) -> bool:
@@ -135,24 +114,26 @@ class RegistrChecker:
     def check_phone_number(self) -> bool:
         """Checks if the phone number is correct"""
 
-        self.data.phone_num.replace('-', '')
-        self.data.phone_num.replace(')', '')
-        self.data.phone_num.replace('(', '')
-        if self._len() and self._only_digits():
+        a = self.data.phone_num.replace('-', '')
+        a = a.replace(')', '')
+        a = a.replace('(', '')
+        a = a.replace('+', '')
+
+        if self._len(a) and self._only_digits(a):
             return True
         return False
 
-    def _len(self) -> bool:
+    def _len(self, a) -> bool:
         """Checks the length of a phone number"""
 
-        if len(self.data.phone_num) == 10:
+        if len(a) == 11:
             return True
         return False
 
-    def _only_digits(self) -> bool:
+    def _only_digits(self, a) -> bool:
         """Checks for extraneous characters"""
 
-        for i in self.data.phone_num:
+        for i in a:
             if i.isalpha():
                 return False
         return True

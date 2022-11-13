@@ -112,7 +112,7 @@ class Window(QMainWindow):
         self.sucsesfuly_window.show()
         self.sucsesfuly_window.suc_button.clicked.connect(self.closing_windows)
         self.is_logined = True
-        # self.change_interface(self.data.FIO)
+        self.change_interface(self.bd_manager.get_FIO(self.data.login)[0])
 
     def sucsesfully_registration(self):
         """Finsh sucsesfuly authorization process"""
@@ -143,9 +143,7 @@ class Window(QMainWindow):
         """Connect finfish-button for registr and login"""
 
         self.data = self.get_reg_data()
-        print(f'В поля ввели -> {self.data}')
         checker = RegistrChecker(self.data)
-        print(f'Проверка пройдена -> {checker.is_correct}')
         if checker.is_correct:
             self.sucsesfully_registration()
         else:
@@ -212,7 +210,6 @@ class Window(QMainWindow):
     def set_items_to_scrolarea(self):
         self.today_sched = self.bd_manager.get_schedule_today()
         self.today_sched = sorted(self.today_sched, key=lambda x: x[0])
-        print(self.today_sched)
         layout = QHBoxLayout()
         for i in self.today_sched:
             widget = uic.loadUi('ui/frame_for_home.ui')

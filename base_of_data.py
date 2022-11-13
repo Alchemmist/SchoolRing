@@ -31,6 +31,13 @@ class DataBaseManager:
         logins = [i[0] for i in cur.execute(comand).fetchall()]
         return logins
 
+    def get_FIO(self, login):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT FIO FROM users WHERE login="{login}"'
+        FIO = [i[0] for i in cur.execute(comand).fetchall()]
+        return FIO
+
     def get_password(self, login):
         """Finds the user's password by login"""
 
