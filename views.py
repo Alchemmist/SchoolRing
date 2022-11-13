@@ -1,3 +1,4 @@
+import datetime
 import sys
 import threading
 
@@ -5,32 +6,29 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import (
     QApplication,
     QMainWindow,
-    QFrame,
     QHBoxLayout,
     QGroupBox
 )
-from PyQt6.uic.properties import QtWidgets
 
-from base_of_data import *
+from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
-from services import LoginData, RegistrData, ringsystem_power, serch_time_for_nearest_ring
+from services import LoginData, RegistrData
+from services import ringsystem_power, serch_time_for_nearest_ring
 
-import datetime
-import time
-
-
+# Encoding for the time module with days of the week
 translator_of_weekday = {
-            0: 'Понедельник',
-            1: 'Вторник',
-            2: 'Среда',
-            3: 'Четверг',
-            4: 'Пятница',
-            5: 'Суббота',
-            6: 'Воскресенье',
-        }
+    0: 'Понедельник',
+    1: 'Вторник',
+    2: 'Среда',
+    3: 'Четверг',
+    4: 'Пятница',
+    5: 'Суббота',
+    6: 'Воскресенье',
+}
 
 
 class Window(QMainWindow):
+    """Main user interaction window"""
     def __init__(self):
         """Create mainwindow"""
 
@@ -39,6 +37,8 @@ class Window(QMainWindow):
         self.initUI()
 
     def initUI(self):
+        """Program initialization"""
+
         uic.loadUi('ui/main.ui', self)
         self.is_logined = False
         self.load_ui()
@@ -48,16 +48,21 @@ class Window(QMainWindow):
         self.set_data_on_interface()
 
     def set_data_on_interface(self):
+        """Displays all the necessary information, individually for the user"""
+
         self.set_items_to_scrolarea()
         self.set_item_to_today_widget()
         self.set_item_to_nearest_widget()
 
     def load_ui(self):
+        """Loads and saves all dialogs in the application"""
+
         self.login_window = uic.loadUi('ui/logining.ui')
         self.registration_window = uic.loadUi('ui/registration.ui')
         self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
         self.error_window = uic.loadUi('ui/error.ui')
         self.authorization_window = uic.loadUi('ui/authorization.ui')
+        self.edit_schedule_window = uic.loadUi('ui/edit_schedule.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -109,6 +114,8 @@ class Window(QMainWindow):
         self.registration_window.go_sistem_button_reg.clicked.connect(self.finish_registration)
 
     def sucsesfully_login(self):
+        """Defines the program's actions after successful authorization"""
+
         self.sucsesfuly_window.show()
         self.sucsesfuly_window.suc_button.clicked.connect(self.closing_windows)
         self.is_logined = True
@@ -150,21 +157,14 @@ class Window(QMainWindow):
             self.error_authorization()
 
     def finish_login(self):
+        """Verification of data and completion of authorization"""
+
         self.data = self.get_log_data()
         checker = LoginChecker(self.data)
         if checker.is_correct:
             self.sucsesfully_login()
         else:
             self.error_authorization()
-
-    def try_logining(self):
-        pass
-        # self.data = self.get_log_data()
-        # checker = LoginChecker(self.data)
-        # if checker.is_correct:
-        # self.login_window.go_sistem_button_log.clicked.connect(self.finish_login)
-        # else:
-        #     self.login_window.go_sistem_button_log.clicked.connect(self.error_authorization)
 
     def get_log_data(self) -> LoginData:
         """Get user log-data for us checking"""
@@ -204,10 +204,14 @@ class Window(QMainWindow):
         self.login_button_cerkle.setText(name[0])
 
     def set_items_to_home(self):
+        """Displaying actual data on widgets on a home page"""
+
         self.set_items_to_scrolarea()
         self.set_item_to_widget()
 
     def set_items_to_scrolarea(self):
+        """Displaying data to scrollarea"""
+
         self.today_sched = self.bd_manager.get_schedule_today()
         self.today_sched = sorted(self.today_sched, key=lambda x: x[0])
         layout = QHBoxLayout()
@@ -226,12 +230,16 @@ class Window(QMainWindow):
         self.scrollArea.setWidgetResizable(True)
 
     def set_item_to_today_widget(self):
+        """Displaying data to status widget with date"""
+
         self.today_label.setText(
             f'{translator_of_weekday[datetime.datetime.today().weekday()]}\n'
             f'{datetime.date.today().strftime("%d-%m-%Y")}'
         )
 
     def set_item_to_nearest_widget(self):
+        """Displaying data to status widget with nearst ring"""
+
         tm, music = serch_time_for_nearest_ring(self.today_sched)
         self.nearest_label.setText(
             f'Через {tm} минут прозвенит {music[0:-4]}'
@@ -239,6 +247,8 @@ class Window(QMainWindow):
 
 
 def windiw_power():
+    """Starts a thread with an image of a windowed application"""
+
     app = QApplication(sys.argv)
     window = Window()
     window.show()

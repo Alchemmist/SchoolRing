@@ -32,6 +32,8 @@ class DataBaseManager:
         return logins
 
     def get_FIO(self, login):
+        """Getting a full name from the lign database"""
+
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
         comand = f'SELECT FIO FROM users WHERE login="{login}"'
@@ -47,6 +49,8 @@ class DataBaseManager:
         return cur.execute(comand).fetchall()
 
     def get_schedule_today(self):
+        """Gets the call schedule for today"""
+
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
         comand = f'SELECT play_time, music, title FROM schedule WHERE template=2'

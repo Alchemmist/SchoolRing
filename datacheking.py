@@ -11,6 +11,8 @@ class LoginChecker:
         self.is_correct = self._check_data()
 
     def _check_data(self) -> bool:
+        """Check aggregator"""
+
         if self._search_login() and self._check_password():
             return True
         return False
@@ -69,6 +71,8 @@ class RegistrChecker:
         return False
 
     def check_password(self) -> bool:
+        """Password verification aggregator"""
+
         if self._repeat_password() and self._savity_password():
             return True
         return False

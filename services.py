@@ -1,21 +1,12 @@
+import time
+from datetime import time
+from time import time
 from typing import NamedTuple
 
+import schedule
 from audioplayer import AudioPlayer
 
-from datetime import time
-from datetime import date
-from datetime import datetime
-
-import threading
-import schedule
-
 import base_of_data
-
-from time import time, sleep
-
-from threading import *
-
-import time
 
 
 class LoginData(NamedTuple):
@@ -43,32 +34,38 @@ class RingManager:
         self.bd_manager = base_of_data.DataBaseManager()
 
     def start_work(self):
-        self.today_sched = self.bd_manager.get_schedule_today()
+        """Aggregator for streaming time tracking and call playback"""
 
-        today_sched = self.today_sched.copy()
+        self.today_sched = self.bd_manager.get_schedule_today()
         self.go_schedule()
 
     def go_schedule(self):
+        """Generates and runs a schedule for today"""
+
         for i in self.today_sched:
             schedule.every().day.at(i[0]).do(ring, 'atac_titan_opening.mp3')
-
         # test:
         # schedule.every(3).seconds.do(ring, 'kapla.mp3')
-
         while True:
             schedule.run_pending()
 
 
 def ringsystem_power():
+    """Generates and runs a schedule for today"""
+
     rm = RingManager()
     rm.start_work()
 
 
 def ring(name_music):
+    """"Plays a melody"""
+
     AudioPlayer(f'music/{name_music}').play(block=True)
 
 
 def serch_time_for_nearest_ring(schedule: list) -> time:
+    """Determines the nearest ring"""
+
     a = time.ctime().split()[3].split(':')
     now = int(a[0]) * 60 + int(a[1])
     closeness = None
