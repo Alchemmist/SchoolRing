@@ -9,6 +9,7 @@ from PyQt6.QtWidgets import (
     QHBoxLayout,
     QGroupBox
 )
+from PyQt6 import QtGui, QtWidgets
 
 from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
@@ -29,6 +30,7 @@ translator_of_weekday = {
 
 class Window(QMainWindow):
     """Main user interaction window"""
+
     def __init__(self):
         """Create mainwindow"""
 
@@ -62,7 +64,7 @@ class Window(QMainWindow):
         self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
         self.error_window = uic.loadUi('ui/error.ui')
         self.authorization_window = uic.loadUi('ui/authorization.ui')
-        self.edit_schedule_window = uic.loadUi('ui/edit_schedule.ui')
+        self.create_schedule_window = uic.loadUi('ui/create_schedule.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -74,6 +76,12 @@ class Window(QMainWindow):
         # authorization
         self.login_button_cerkle.clicked.connect(self.authorization)
         self.login_button_text.clicked.connect(self.authorization)
+        # timetable
+        self.create_schedule_button.clicked.connect(self.create_schedule)
+        # self.edit_schedule_button.clicked.connect(self.edit_schedule)
+        # # template
+        # self.add_template_button.clicked.connect(self.create_template)
+        # self.???.clicked.connect(self.edit_template)
 
     def go_home(self):
         """Switching tub to Home page"""
@@ -244,6 +252,47 @@ class Window(QMainWindow):
         self.nearest_label.setText(
             f'Через {tm} минут прозвенит {music[0:-4]}'
         )
+
+    def create_schedule(self):
+        self.create_schedule_window.show()
+        self.fill_combobox()
+        self.set_date()
+
+    def fill_combobox(self):
+        for i in self.bd_manager.get_list_template():
+            self.create_schedule_window.templates_combobox.addItem(i[0])
+        self.create_schedule_window.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+
+    def set_date(self):
+        self.create_schedule_window.dateEdit.setDisplayFormat("dd-MM-yyyy")
+        self.create_schedule_window.dateEdit.setDate(datetime.date.today())
+
+    def chenge_tableitem_as_template(self):
+        self.template = self.bd_manager.get_schedule(self.create_schedule_window.templates_combobox.currentText())
+        self.create_schedule_window.tableWidget.setRowCount(len(self.template))
+        for i, value in enumerate(self.template):
+            self.create_schedule_window.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
+            self.create_schedule_window.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
+            self.create_schedule_window.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
+        self.create_schedule_window.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+
+    def finish_creating_schedule(self):
+        self.save_schedule()
+        self.create_schedule_window.hide()
+        # self.add_to_timetable()
+
+    def save_schedule(self):
+        rows = self.create_schedule_window.tableWidget.rowCount()
+        cols = self.create_schedule_window.tableWidget.columnCount()
+        for row in range(rows):
+            finish = []
+            for col in range(cols):
+                try:
+                    finish.append(self.create_schedule_window.tableWidget.item(row, col).text())
+                except:
+                    pass
+            print(finish)
+            self.bd_manager.save_shedule_row(finish)
 
 
 def windiw_power():

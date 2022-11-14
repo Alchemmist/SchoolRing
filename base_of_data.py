@@ -13,8 +13,8 @@ class DataBaseManager:
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
         comand = f'INSERT INTO users(login, password, school_num, building_num, phone_num, FIO) ' \
-                 f'VALUES("{data.login}", "{data.repeat_password}", "{int(data.school_num)}", "{int(data.building_num)}", ' \
-                 f'"{data.phone_num}", "{data.FIO}")'
+                 f'VALUES("{data.login}", "{data.repeat_password}", "{int(data.school_num)}", ' \
+                 f'"{int(data.building_num)}", "{data.phone_num}", "{data.FIO}")'
 
         cur.execute(comand).fetchall()
         con.commit()
@@ -55,3 +55,24 @@ class DataBaseManager:
         cur = con.cursor()
         comand = f'SELECT play_time, music, title FROM schedule WHERE template=2'
         return cur.execute(comand).fetchall()
+
+    def get_list_template(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT title FROM template'
+        return cur.execute(comand).fetchall()
+
+    def get_schedule(self, template):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        template_id = cur.execute(f'SELECT id FROM template WHERE title="{template}"').fetchall()[0][0]
+        comand = f'SELECT title, play_time, music FROM schedule WHERE template = "{template_id}"'
+        return cur.execute(comand).fetchall()
+
+    def save_shedule_row(self, data: list):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'INSERT INTO schedule(title, play_time, music) ' \
+                 f'VALUES("{data[0]}", "{data[1]}", "{data[2]}")'
+        cur.execute(comand).fetchall()
+        con.commit()

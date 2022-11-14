@@ -1,6 +1,4 @@
 import time
-from datetime import time
-from time import time
 from typing import NamedTuple
 
 import schedule
