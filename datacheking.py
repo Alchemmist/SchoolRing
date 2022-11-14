@@ -2,15 +2,35 @@ from services import LoginData, RegistrData
 from base_of_data import DataBaseManager
 
 
+class PhoneError(Exception):
+    pass
+
+
+class PasswordError(Exception):
+    pass
+
+
+class FIOError(Exception):
+    pass
+
+
+class SchoolError(Exception):
+    pass
+
+
+class LoginError(Exception):
+    pass
+
+
 class LoginChecker:
     """Validates data upon login"""
 
     def __init__(self, data: LoginData):
         self.data = data
         self.bd_manager = DataBaseManager()
-        self.is_correct = self._check_data()
+        self.is_correct = self.check_data()
 
-    def _check_data(self) -> bool:
+    def check_data(self) -> bool:
         """Check aggregator"""
 
         if self._search_login() and self._check_password():
@@ -23,7 +43,7 @@ class LoginChecker:
         login_after_serch = self.bd_manager.serch_logins(self.data.login)
         if len(login_after_serch) > 0:
             return True
-        return False
+        raise LoginError
 
     def _check_password(self) -> bool:
         """Checks if the user's password is correct"""
@@ -31,7 +51,7 @@ class LoginChecker:
         password_after_serch = self.bd_manager.get_password(self.data.login)
         if self.data.password == password_after_serch[0][0]:
             return True
-        return False
+        raise PasswordError
 
 
 class RegistrChecker:
@@ -60,7 +80,7 @@ class RegistrChecker:
 
         if len(self.data.FIO.strip().split()) == 3:
             return True
-        return False
+        raise FIOError()
 
     def check_login(self) -> bool:
         """Checks the uniqueness of the login"""
@@ -75,7 +95,7 @@ class RegistrChecker:
 
         if self._repeat_password() and self._savity_password():
             return True
-        return False
+        raise PasswordError()
 
     def _repeat_password(self) -> bool:
         """Checks if the user entered the same password"""
@@ -113,7 +133,7 @@ class RegistrChecker:
 
         if self.data.school_num.isdigit() and self.data.building_num.isdigit():
             return True
-        return False
+        raise SchoolError()
 
     def check_phone_number(self) -> bool:
         """Checks if the phone number is correct"""
@@ -125,7 +145,7 @@ class RegistrChecker:
 
         if self._len(a) and self._only_digits(a):
             return True
-        return False
+        raise PhoneError()
 
     def _len(self, a) -> bool:
         """Checks the length of a phone number"""

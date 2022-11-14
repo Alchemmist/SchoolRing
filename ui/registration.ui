@@ -121,7 +121,7 @@ background-color: #0080ff;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-3</y>
+      <y>0</y>
       <width>327</width>
       <height>642</height>
      </rect>
@@ -257,7 +257,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string/>
+        <string>f f f</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -323,7 +323,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string/>
+        <string>1357</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -359,7 +359,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string/>
+        <string>aspkjdfia</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -591,7 +591,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Qwerty1234</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -755,7 +755,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Qwerty1234</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

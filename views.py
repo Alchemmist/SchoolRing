@@ -15,6 +15,7 @@ from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
 from services import LoginData, RegistrData
 from services import ringsystem_power, serch_time_for_nearest_ring
+from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
 
 # Encoding for the time module with days of the week
 translator_of_weekday = {
@@ -157,21 +158,38 @@ class Window(QMainWindow):
     def finish_registration(self):
         """Connect finfish-button for registr and login"""
 
-        self.data = self.get_reg_data()
-        checker = RegistrChecker(self.data)
-        if checker.is_correct:
-            self.sucsesfully_registration()
-        else:
+        try:
+            self.data = self.get_reg_data()
+            checker = RegistrChecker(self.data)
+            if checker.is_correct:
+                self.sucsesfully_registration()
+        except PhoneError:
+            self.error_authorization()
+            self.error_window.message_label.setText('Please check if you have entered your phone number correctly')
+        except PasswordError:
+            self.error_window.message_label.setText("Please check if you have entered your password correctly")
+            self.error_authorization()
+        except FIOError:
+            self.error_window.message_label.setText('Please check if you have entered your FIO correctly')
+            self.error_authorization()
+        except SchoolError:
+            self.error_window.message_label.setText('Please check if you have entered your '
+                                                    'school or building number correctly')
             self.error_authorization()
 
     def finish_login(self):
         """Verification of data and completion of authorization"""
 
-        self.data = self.get_log_data()
-        checker = LoginChecker(self.data)
-        if checker.is_correct:
-            self.sucsesfully_login()
-        else:
+        try:
+            self.data = self.get_log_data()
+            checker = LoginChecker(self.data)
+            if checker.is_correct:
+                self.sucsesfully_login()
+        except LoginError:
+            self.error_window.message_label.setText('Please check if you have entered your login correctly')
+            self.error_authorization()
+        except PasswordError:
+            self.error_window.message_label.setText('Please check if you have entered your password correctly')
             self.error_authorization()
 
     def get_log_data(self) -> LoginData:
