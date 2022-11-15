@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>389</width>
-    <height>371</height>
+    <height>431</height>
    </rect>
   </property>
   <property name="font">
@@ -54,247 +54,10 @@
       <x>0</x>
       <y>0</y>
       <width>291</width>
-      <height>300</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QRadioButton" name="radioButton_9">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>Defoult2</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_7">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>RadioButton</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_8">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>RadioButton</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_12">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>RadioButton</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_13">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>Defoult2</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_11">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>Defoult2</string>
-       </property>
-       <property name="autoRepeat">
-        <bool>true</bool>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QRadioButton" name="radioButton_10">
        <property name="sizePolicy">
@@ -306,7 +69,7 @@ color: white
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>30</height>
+         <height>35</height>
         </size>
        </property>
        <property name="font">
@@ -319,51 +82,12 @@ color: white
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: #0080ff;
-border-radius: 13;
+border-radius: 10;
 color: white
 </string>
        </property>
        <property name="text">
         <string>Defoult2</string>
-       </property>
-       <property name="autoRepeatDelay">
-        <number>1</number>
-       </property>
-       <property name="autoRepeatInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_6">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Yandex Sans Display Bold</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #0080ff;
-border-radius: 13;
-color: white
-</string>
-       </property>
-       <property name="text">
-        <string>RadioButton</string>
        </property>
        <property name="autoRepeatDelay">
         <number>1</number>
@@ -420,6 +144,46 @@ background-color: #0080ff;</string>
      <string>Choose defoult template</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="finish_chiise_button">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>370</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yandex Sans Display Bold</family>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;
+background-color: #0080ff;
+border-radius: 12;
+</string>
+   </property>
+   <property name="text">
+    <string>Set</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/main_window/templte/set_template.png</normaloff>../icons/main_window/templte/set_template.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
   </widget>
  </widget>
  <resources/>

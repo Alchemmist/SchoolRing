@@ -257,7 +257,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string>f f f</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -323,7 +323,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string>1357</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -359,7 +359,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string>aspkjdfia</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -591,7 +591,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string>Qwerty1234</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -755,7 +755,7 @@ border: 2px solid white;
 color: white</string>
        </property>
        <property name="text">
-        <string>Qwerty1234</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

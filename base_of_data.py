@@ -76,3 +76,11 @@ class DataBaseManager:
                  f'VALUES("{data[0]}", "{data[1]}", "{data[2]}")'
         cur.execute(comand).fetchall()
         con.commit()
+
+    def get_all_templates(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        templates = cur.execute(f'SELECT title FROM template').fetchall()
+        finish_lst = [i[0] for i in templates]
+        return finish_lst
+

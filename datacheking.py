@@ -88,7 +88,7 @@ class RegistrChecker:
         logins = self.bd_manager.serch_logins(self.data.login)
         if not logins:
             return True
-        return False
+        raise LoginError
 
     def check_password(self) -> bool:
         """Password verification aggregator"""

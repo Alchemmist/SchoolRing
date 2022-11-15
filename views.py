@@ -7,7 +7,8 @@ from PyQt6.QtWidgets import (
     QApplication,
     QMainWindow,
     QHBoxLayout,
-    QGroupBox
+    QGroupBox,
+    QRadioButton, QVBoxLayout, QGridLayout
 )
 from PyQt6 import QtGui, QtWidgets
 
@@ -44,6 +45,7 @@ class Window(QMainWindow):
 
         uic.loadUi('ui/main.ui', self)
         self.is_logined = False
+        self.defoult_template = ''
         self.load_ui()
 
         self.connect_button()
@@ -53,9 +55,8 @@ class Window(QMainWindow):
     def set_data_on_interface(self):
         """Displays all the necessary information, individually for the user"""
 
-        self.set_items_to_scrolarea()
-        self.set_item_to_today_widget()
-        self.set_item_to_nearest_widget()
+        self.set_items_to_home()
+        self.set_item_to_template()
 
     def load_ui(self):
         """Loads and saves all dialogs in the application"""
@@ -66,6 +67,8 @@ class Window(QMainWindow):
         self.error_window = uic.loadUi('ui/error.ui')
         self.authorization_window = uic.loadUi('ui/authorization.ui')
         self.create_schedule_window = uic.loadUi('ui/create_schedule.ui')
+        self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
+        self.templ = uic.loadUi('ui/one_template.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -81,6 +84,7 @@ class Window(QMainWindow):
         self.create_schedule_button.clicked.connect(self.create_schedule)
         # self.edit_schedule_button.clicked.connect(self.edit_schedule)
         # # template
+        self.edit_defoult_button.clicked.connect(self.change_defoult_template)
         # self.add_template_button.clicked.connect(self.create_template)
         # self.???.clicked.connect(self.edit_template)
 
@@ -161,6 +165,7 @@ class Window(QMainWindow):
         try:
             self.data = self.get_reg_data()
             checker = RegistrChecker(self.data)
+            print(checker.is_correct)
             if checker.is_correct:
                 self.sucsesfully_registration()
         except PhoneError:
@@ -175,6 +180,9 @@ class Window(QMainWindow):
         except SchoolError:
             self.error_window.message_label.setText('Please check if you have entered your '
                                                     'school or building number correctly')
+            self.error_authorization()
+        except LoginError:
+            self.error_window.message_label.setText('This login already used')
             self.error_authorization()
 
     def finish_login(self):
@@ -232,11 +240,12 @@ class Window(QMainWindow):
     def set_items_to_home(self):
         """Displaying actual data on widgets on a home page"""
 
-        self.set_items_to_scrolarea()
-        self.set_item_to_widget()
+        self.set_items_to_homescroll()
+        self.set_item_to_today_widget()
+        self.set_item_to_nearest_widget()
 
-    def set_items_to_scrolarea(self):
-        """Displaying data to scrollarea"""
+    def set_items_to_homescroll(self):
+        """Displaying data to scrollarea on Home page"""
 
         self.today_sched = self.bd_manager.get_schedule_today()
         self.today_sched = sorted(self.today_sched, key=lambda x: x[0])
@@ -311,6 +320,51 @@ class Window(QMainWindow):
                     pass
             print(finish)
             self.bd_manager.save_shedule_row(finish)
+
+    def change_defoult_template(self):
+        self.choose_defoult_template.show()
+        self.init_template_radiobutton()
+        self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
+
+    def save_defoult_template(self):
+        self.choose_defoult_template.hide()
+        self.label.setText(f'По умолчанию - {self.defoult_template}')
+
+    def init_template_radiobutton(self):
+        templates = self.bd_manager.get_all_templates()
+        layout = QVBoxLayout()
+        for i in templates:
+            widget = QRadioButton(i)
+            widget.setStyleSheet('background-color: #0080ff;\nborder-radius: 10;\ncolor: white\n')
+            widget.setGeometry(100, 100, 273, 35)
+            widget.setFixedSize(273, 35)
+            widget.toggled.connect(self.chanhged_defoult)
+            layout.addWidget(widget)
+        group_box = QGroupBox()
+        group_box.setStyleSheet(
+            'border: 0px'
+        )
+        group_box.setLayout(layout)
+        self.choose_defoult_template.scrollArea.setWidget(group_box)
+        self.choose_defoult_template.scrollArea.setWidgetResizable(True)
+
+    def chanhged_defoult(self):
+        self.defoult_template = self.sender().text()
+
+    def set_item_to_template(self):
+        templates = self.bd_manager.get_all_templates()
+        layout = QGridLayout()
+        for i in templates:
+            widget = self.templ
+            widget.title.setText(i)
+            widget.edit_template.clicked.connect(self.refactor_template)
+            layout.addWidget(widget)
+        self.choose_defoult_template.scrollArea.setLayout(layout)
+        # self.choose_defoult_template.scrollArea.setWidget(group_box)
+        self.choose_defoult_template.scrollArea.setWidgetResizable(True)
+
+    def refactor_template(self):
+        pass
 
 
 def windiw_power():
