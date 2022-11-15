@@ -69,6 +69,7 @@ class Window(QMainWindow):
         self.create_schedule_window = uic.loadUi('ui/create_schedule.ui')
         self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
         self.templ = uic.loadUi('ui/one_template.ui')
+        self.add_templ = uic.loadUi('ui/add_template_frame.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -359,9 +360,12 @@ class Window(QMainWindow):
             widget.title.setText(i)
             widget.edit_template.clicked.connect(self.refactor_template)
             layout.addWidget(widget)
+        position = [(i, j) for i in range(5) for j in range(4)]
+        layout.addWidget(self.add_templ)
         self.scrollArea_5.setLayout(layout)
         # self.choose_defoult_template.scrollArea.setWidget(group_box)
         self.scrollArea_5.setWidgetResizable(True)
+        # https://zetcode.com/pyqt6/layout/
 
     def refactor_template(self):
         pass
