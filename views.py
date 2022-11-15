@@ -359,9 +359,9 @@ class Window(QMainWindow):
             widget.title.setText(i)
             widget.edit_template.clicked.connect(self.refactor_template)
             layout.addWidget(widget)
-        self.choose_defoult_template.scrollArea.setLayout(layout)
+        self.scrollArea_5.setLayout(layout)
         # self.choose_defoult_template.scrollArea.setWidget(group_box)
-        self.choose_defoult_template.scrollArea.setWidgetResizable(True)
+        self.scrollArea_5.setWidgetResizable(True)
 
     def refactor_template(self):
         pass
