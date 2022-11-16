@@ -8,15 +8,20 @@ from PyQt6.QtWidgets import (
     QMainWindow,
     QHBoxLayout,
     QGroupBox,
-    QRadioButton, QVBoxLayout, QGridLayout
+    QRadioButton,
+    QVBoxLayout,
+    QGridLayout,
+    QFileDialog
 )
 from PyQt6 import QtGui, QtWidgets
 
 from base_of_data import DataBaseManager
+
 from datacheking import LoginChecker, RegistrChecker
+from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
+
 from services import LoginData, RegistrData
 from services import ringsystem_power, serch_time_for_nearest_ring
-from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
 
 # Encoding for the time module with days of the week
 translator_of_weekday = {
@@ -57,6 +62,7 @@ class Window(QMainWindow):
 
         self.set_items_to_home()
         self.set_item_to_template()
+        self.set_item_to_timetable()
 
     def load_ui(self):
         """Loads and saves all dialogs in the application"""
@@ -66,10 +72,12 @@ class Window(QMainWindow):
         self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
         self.error_window = uic.loadUi('ui/error.ui')
         self.authorization_window = uic.loadUi('ui/authorization.ui')
-        self.create_schedule_window = uic.loadUi('ui/create_schedule.ui')
+        self.work_with_schedule_window = uic.loadUi('ui/create_schedule.ui')
         self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
         self.templ = uic.loadUi('ui/one_template.ui')
         self.add_templ = uic.loadUi('ui/add_template_frame.ui')
+        self.active_schedule_window = uic.loadUi('ui/active_schedule.ui')
+        self.naming_temp = uic.loadUi('ui/get_name_templ.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -86,6 +94,7 @@ class Window(QMainWindow):
         # self.edit_schedule_button.clicked.connect(self.edit_schedule)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
+        self.add_templ.new_template_button.clicked.connect(self.create_template)
         # self.add_template_button.clicked.connect(self.create_template)
         # self.???.clicked.connect(self.edit_template)
 
@@ -282,41 +291,78 @@ class Window(QMainWindow):
         )
 
     def create_schedule(self):
-        self.create_schedule_window.show()
+        self.work_with_schedule_window.show()
         self.fill_combobox()
         self.set_date()
+        self.work_with_schedule_window.add_row_button.clicked.connect(self.add_row_to_schedule)
+        self.work_with_schedule_window.choose_file_button.clicked.connect(self.choose_music_file)
+        self.set_item_to_timetable()
+
+    def set_item_to_timetable(self):
+        templates = self.bd_manager.get_active_templates()
+        layout = QVBoxLayout()
+        for title, date in templates:
+            widget = uic.loadUi('ui/active_schedule.ui')
+            widget.title_label.setText(title)
+            widget.date_label.setText(date)
+            layout.addWidget(widget)
+        group_box = QGroupBox()
+        group_box.setStyleSheet(
+            'border: 0px'
+        )
+        group_box.setLayout(layout)
+        self.scrollArea_2.setWidget(group_box)
+        self.scrollArea_2.setWidgetResizable(True)
+
+    def add_row_to_schedule(self):
+        currentRowCount = self.work_with_schedule_window.tableWidget.rowCount()
+        self.work_with_schedule_window.tableWidget.insertRow(currentRowCount)
+        # self.chenge_tableitem_as_template()
 
     def fill_combobox(self):
         for i in self.bd_manager.get_list_template():
-            self.create_schedule_window.templates_combobox.addItem(i[0])
-        self.create_schedule_window.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+            self.work_with_schedule_window.templates_combobox.addItem(i[0])
+        self.work_with_schedule_window.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
 
     def set_date(self):
-        self.create_schedule_window.dateEdit.setDisplayFormat("dd-MM-yyyy")
-        self.create_schedule_window.dateEdit.setDate(datetime.date.today())
+        self.work_with_schedule_window.dateEdit.setDisplayFormat("dd-MM-yyyy")
+        self.work_with_schedule_window.dateEdit.setDate(datetime.date.today())
+
+    def choosing_file(self):
+        path = QFileDialog.getOpenFileName(
+            self, 'Выбрать картинку', '',
+            'Музыка (*.mp3);;Все файлы (*)')[0]
+        file_name = path.split('/')[-1]
+        return file_name
+
+    def choose_music_file(self):
+        file_name = self.choosing_file()
+        self.work_with_schedule_window.file_name_edit.setText(file_name)
+        self.work_with_schedule_window.hide()
+        self.work_with_schedule_window.show()
 
     def chenge_tableitem_as_template(self):
-        self.template = self.bd_manager.get_schedule(self.create_schedule_window.templates_combobox.currentText())
-        self.create_schedule_window.tableWidget.setRowCount(len(self.template))
+        self.template = self.bd_manager.get_schedule(self.work_with_schedule_window.templates_combobox.currentText())
+        self.work_with_schedule_window.tableWidget.setRowCount(len(self.template))
         for i, value in enumerate(self.template):
-            self.create_schedule_window.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
-            self.create_schedule_window.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
-            self.create_schedule_window.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
-        self.create_schedule_window.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+            self.work_with_schedule_window.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
+            self.work_with_schedule_window.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
+            self.work_with_schedule_window.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
+        self.work_with_schedule_window.finish_creating_button.clicked.connect(self.finish_creating_schedule)
 
     def finish_creating_schedule(self):
         self.save_schedule()
-        self.create_schedule_window.hide()
+        self.work_with_schedule_window.hide()
         # self.add_to_timetable()
 
     def save_schedule(self):
-        rows = self.create_schedule_window.tableWidget.rowCount()
-        cols = self.create_schedule_window.tableWidget.columnCount()
+        rows = self.work_with_schedule_window.tableWidget.rowCount()
+        cols = self.work_with_schedule_window.tableWidget.columnCount()
         for row in range(rows):
             finish = []
             for col in range(cols):
                 try:
-                    finish.append(self.create_schedule_window.tableWidget.item(row, col).text())
+                    finish.append(self.work_with_schedule_window.tableWidget.item(row, col).text())
                 except:
                     pass
             print(finish)
@@ -369,6 +415,22 @@ class Window(QMainWindow):
 
     def refactor_template(self):
         pass
+
+    def create_template(self):
+        self.work_with_schedule_window.show()
+        self.fill_combobox()
+        self.set_date()
+        self.naming_template()
+        # code
+
+    def naming_template(self):
+        self.naming_temp.show()
+        self.naming_temp.finish_naming_button.clicked.connect(self.finish_neming)
+
+    def finish_neming(self):
+        self.title_for_new_templ = self.naming_temp.name_lineEdit.text()
+        self.work_with_schedule_window.templates_combobox.addItem(self.title_for_new_templ)
+        self.naming_temp.hide()
 
 
 def windiw_power():

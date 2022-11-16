@@ -84,3 +84,9 @@ class DataBaseManager:
         finish_lst = [i[0] for i in templates]
         return finish_lst
 
+    def get_active_templates(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        templates = cur.execute(f'SELECT title, date FROM template WHERE date').fetchall()
+        return templates
+
