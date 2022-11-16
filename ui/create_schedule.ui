@@ -292,7 +292,7 @@ border-radius: 5;
 </string>
    </property>
    <property name="text">
-    <string>add</string>
+    <string>add row</string>
    </property>
    <property name="iconSize">
     <size>
@@ -313,7 +313,7 @@ border-radius: 5;
    <property name="font">
     <font>
      <family>Yandex Sans Display Bold</family>
-     <pointsize>16</pointsize>
+     <pointsize>15</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -328,7 +328,7 @@ border-radius: 8;
 </string>
    </property>
    <property name="text">
-    <string>Get file</string>
+    <string>Browse file</string>
    </property>
    <property name="iconSize">
     <size>

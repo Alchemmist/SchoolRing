@@ -90,3 +90,25 @@ class DataBaseManager:
         templates = cur.execute(f'SELECT title, date FROM template WHERE date').fetchall()
         return templates
 
+    def get_id_template(self, title, date):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        templates = cur.execute(f'SELECT id FROM template WHERE title="{title}" AND date="{date}"').fetchall()
+        return templates[0]
+
+    def add_special_date(self, template, date):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'INSERT INTO template(title, date) ' \
+                 f'VALUES("{template}", "{date}")'
+        cur.execute(comand).fetchall()
+        con.commit()
+
+    def update_special_date(self, template, date, id):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'UPDATE template(title, date) ' \
+                 f'SET("{template}", "{date}")' \
+                 f'WHERE id="{id}"'
+        cur.execute(comand).fetchall()
+        con.commit()
