@@ -271,12 +271,46 @@ imports:
 </div>
 
 <div class="node">
+  <a name="'gi.repository'"></a>
+  <a target="code" href="" type="text/plain"><tt>'gi.repository'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="'java.lang'"></a>
+  <a target="code" href="" type="text/plain"><tt>'java.lang'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#platform">platform</a>
+ &#8226;   <a href="#xml.sax._exceptions">xml.sax._exceptions</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="'org.python'"></a>
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="AppKit"></a>
+  <a target="code" href="" type="text/plain"><tt>AppKit</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#audioplayer.audioplayer_macos">audioplayer.audioplayer_macos</a>
 
   </div>
 
@@ -1064,6 +1098,16 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="_ctypes"></a>
+  <tt>_ctypes</tt> <span class="moduletype"><tt>C:\Python\DLLs\_ctypes.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#ctypes">ctypes</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="_datetime"></a>
   <tt>_datetime</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imports:
@@ -1635,6 +1679,17 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="_winreg"></a>
+  <a target="code" href="" type="text/plain"><tt>_winreg</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#platform">platform</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="abc"></a>
   <a target="code" href="///C:/Python/lib/abc.py" type="text/plain"><tt>abc</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -1646,6 +1701,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#_collections_abc">_collections_abc</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#email._policybase">email._policybase</a>
@@ -1742,10 +1798,100 @@ imported by:
 
 <div class="node">
   <a name="audioplayer"></a>
-  <a target="code" href="" type="text/plain"><tt>audioplayer</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
+  <a target="code" href="///C:/Python/lib/site-packages/audioplayer/__init__.py" type="text/plain"><tt>audioplayer</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
+ &#8226;   <a href="#audioplayer.audioplayer_macos">audioplayer.audioplayer_macos</a>
+ &#8226;   <a href="#audioplayer.audioplayer_windows">audioplayer.audioplayer_windows</a>
+ &#8226;   <a href="#platform">platform</a>
+
+  </div>
+  <div class="import">
 imported by:
-    <a href="#services">services</a>
+    <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
+ &#8226;   <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
+ &#8226;   <a href="#audioplayer.audioplayer_macos">audioplayer.audioplayer_macos</a>
+ &#8226;   <a href="#audioplayer.audioplayer_windows">audioplayer.audioplayer_windows</a>
+ &#8226;   <a href="#services">services</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="audioplayer.abstractaudioplayer"></a>
+  <a target="code" href="///C:/Python/lib/site-packages/audioplayer/abstractaudioplayer.py" type="text/plain"><tt>audioplayer.abstractaudioplayer</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#abc">abc</a>
+ &#8226;   <a href="#audioplayer">audioplayer</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
+ &#8226;   <a href="#audioplayer.audioplayer_macos">audioplayer.audioplayer_macos</a>
+ &#8226;   <a href="#audioplayer.audioplayer_windows">audioplayer.audioplayer_windows</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="audioplayer.audioplayer_linux"></a>
+  <a target="code" href="///C:/Python/lib/site-packages/audioplayer/audioplayer_linux.py" type="text/plain"><tt>audioplayer.audioplayer_linux</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#'gi.repository'">'gi.repository'</a>
+ &#8226;   <a href="#audioplayer">audioplayer</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
+ &#8226;   <a href="#gi">gi</a>
+ &#8226;   <a href="#urllib.request">urllib.request</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer">audioplayer</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="audioplayer.audioplayer_macos"></a>
+  <a target="code" href="///C:/Python/lib/site-packages/audioplayer/audioplayer_macos.py" type="text/plain"><tt>audioplayer.audioplayer_macos</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#AppKit">AppKit</a>
+ &#8226;   <a href="#audioplayer">audioplayer</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer">audioplayer</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="audioplayer.audioplayer_windows"></a>
+  <a target="code" href="///C:/Python/lib/site-packages/audioplayer/audioplayer_windows.py" type="text/plain"><tt>audioplayer.audioplayer_windows</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#audioplayer">audioplayer</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer">audioplayer</a>
 
   </div>
 
@@ -2076,6 +2222,7 @@ imported by:
  &#8226;   <a href="#importlib.readers">importlib.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#shlex">shlex</a>
@@ -2173,8 +2320,8 @@ imported by:
   <a target="code" href="///C:/Python/lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#copyreg">copyreg</a>
+    <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -2230,6 +2377,46 @@ imports:
   <div class="import">
 imported by:
     <a href="#importlib.metadata">importlib.metadata</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes"></a>
+  <a target="code" href="///C:/Python/lib/ctypes/__init__.py" type="text/plain"><tt>ctypes</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#_ctypes">_ctypes</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+ &#8226;   <a href="#nt">nt</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#types">types</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer.audioplayer_windows">audioplayer.audioplayer_windows</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes._endian"></a>
+  <a target="code" href="///C:/Python/lib/ctypes/_endian.py" type="text/plain"><tt>ctypes._endian</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes">ctypes</a>
 
   </div>
 
@@ -5470,6 +5657,7 @@ imported by:
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#schedule">schedule</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -5583,6 +5771,17 @@ imported by:
     <a href="#argparse">argparse</a>
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#optparse">optparse</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="gi"></a>
+  <a target="code" href="" type="text/plain"><tt>gi</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
 
   </div>
 
@@ -6207,6 +6406,7 @@ imported by:
  &#8226;   <a href="#importlib.metadata._itertools">importlib.metadata._itertools</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pickle">pickle</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#statistics">statistics</a>
@@ -6225,7 +6425,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>java</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#xml.sax._exceptions">xml.sax._exceptions</a>
+    <a href="#platform">platform</a>
 
   </div>
 
@@ -6434,7 +6634,8 @@ imported by:
   <a name="nt"></a>
   <tt>nt</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#shutil">shutil</a>
@@ -6595,7 +6796,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
 
   </div>
 
@@ -6626,7 +6827,9 @@ imported by:
  &#8226;   <a href="#PyQt6.uic.compile_ui">PyQt6.uic.compile_ui</a>
  &#8226;   <a href="#PyQt6.uic.uiparser">PyQt6.uic.uiparser</a>
  &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
  &#8226;   <a href="#bz2">bz2</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#genericpath">genericpath</a>
@@ -6648,6 +6851,7 @@ imported by:
  &#8226;   <a href="#optparse">optparse</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
@@ -6724,14 +6928,14 @@ imported by:
   <a target="code" href="///C:/Python/lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -6773,6 +6977,35 @@ imports:
 imported by:
     <a href="#PyQt6">PyQt6</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="platform"></a>
+  <a target="code" href="///C:/Python/lib/platform.py" type="text/plain"><tt>platform</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#'java.lang'">'java.lang'</a>
+ &#8226;   <a href="#_winreg">_winreg</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#java">java</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#socket">socket</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#vms_lib">vms_lib</a>
+ &#8226;   <a href="#winreg">winreg</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audioplayer">audioplayer</a>
 
   </div>
 
@@ -7013,6 +7246,7 @@ imported by:
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#schedule">schedule</a>
@@ -7234,6 +7468,7 @@ imported by:
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#ftplib">ftplib</a>
  &#8226;   <a href="#http.client">http.client</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
 
@@ -7488,9 +7723,11 @@ imports:
   <div class="import">
 imported by:
     <a href="#base64">base64</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#pickle">pickle</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
@@ -7527,6 +7764,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#os">os</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#pyi_rth_subprocess.py">pyi_rth_subprocess.py</a>
 
   </div>
@@ -7550,11 +7788,14 @@ imported by:
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#ast">ast</a>
+ &#8226;   <a href="#audioplayer.abstractaudioplayer">audioplayer.abstractaudioplayer</a>
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#dis">dis</a>
@@ -7589,6 +7830,7 @@ imported by:
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -7762,6 +8004,7 @@ imports:
 imported by:
     <a href="#_datetime">_datetime</a>
  &#8226;   <a href="#_strptime">_strptime</a>
+ &#8226;   <a href="#audioplayer.audioplayer_macos">audioplayer.audioplayer_macos</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#email._parseaddr">email._parseaddr</a>
  &#8226;   <a href="#email.generator">email.generator</a>
@@ -7890,6 +8133,7 @@ imported by:
     <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#copy">copy</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email.headerregistry">email.headerregistry</a>
@@ -8059,7 +8303,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#http.cookiejar">http.cookiejar</a>
+    <a href="#audioplayer.audioplayer_linux">audioplayer.audioplayer_linux</a>
+ &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#views.py">views.py</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
@@ -8121,6 +8366,17 @@ imports:
   <div class="import">
 imported by:
     <a href="#email.message">email.message</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="vms_lib"></a>
+  <a target="code" href="" type="text/plain"><tt>vms_lib</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#platform">platform</a>
 
   </div>
 
@@ -8218,6 +8474,7 @@ imported by:
 imported by:
     <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
+ &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
 
   </div>
@@ -8430,7 +8687,7 @@ imported by:
   <a target="code" href="///C:/Python/lib/xml/sax/_exceptions.py" type="text/plain"><tt>xml.sax._exceptions</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#java">java</a>
+    <a href="#'java.lang'">'java.lang'</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
