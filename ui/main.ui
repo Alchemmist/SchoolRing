@@ -64,7 +64,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Home_page">
      <widget class="QLabel" name="nearest_label">
@@ -301,42 +301,6 @@ color: white</string>
        <string>Add</string>
       </property>
      </widget>
-     <widget class="QScrollArea" name="scrollArea_2">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>60</y>
-        <width>531</width>
-        <height>411</height>
-       </rect>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>529</width>
-         <height>409</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout"/>
-      </widget>
-     </widget>
      <widget class="QPushButton" name="DELETE_schedule_button">
       <property name="geometry">
        <rect>
@@ -367,15 +331,41 @@ color: white</string>
        <string>Delete</string>
       </property>
      </widget>
+     <widget class="QScrollArea" name="scrollArea_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>571</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>569</width>
+         <height>409</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="Template_page">
      <widget class="QScrollArea" name="scrollArea_5">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>100</y>
-        <width>611</width>
-        <height>481</height>
+        <x>190</x>
+        <y>110</y>
+        <width>551</width>
+        <height>461</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -401,8 +391,8 @@ color: white</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>611</width>
-         <height>481</height>
+         <width>551</width>
+         <height>461</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2"/>

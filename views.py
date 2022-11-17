@@ -12,7 +12,8 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QGridLayout,
     QFileDialog,
-    QCheckBox
+    QCheckBox,
+    QScrollArea
 )
 from PyQt6 import QtGui, QtWidgets, QtCore
 
@@ -97,6 +98,7 @@ class Window(QMainWindow):
         # timetable
         self.DELETE_schedule_button.clicked.connect(self.delete_special_day)
         self.ADD_schedule_button.clicked.connect(self.add_special_day)
+        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
         self.add_templ.new_template_button.clicked.connect(self.create_template)
@@ -106,6 +108,8 @@ class Window(QMainWindow):
     def go_home(self):
         """Switching tub to Home page"""
 
+        self.authorization_window.start_login_button.clicked.connect(self.logining)
+        self.authorization_window.start_regisration_button.clicked.connect(self.registring)
         self.stackedWidget.setCurrentIndex(0)
         self._init_nearest_widget()
 
@@ -123,8 +127,6 @@ class Window(QMainWindow):
         """Open authorization dialog window"""
 
         self.authorization_window.show()
-        self.authorization_window.start_login_button.clicked.connect(self.logining)
-        self.authorization_window.start_regisration_button.clicked.connect(self.registring)
 
     def logining(self):
         """Open login dialog window"""
@@ -302,6 +304,8 @@ class Window(QMainWindow):
         self._init_delete_sched_window()
 
     def _init_list_special_day(self):
+        self.scrollArea_2.setWidget(QGroupBox().setLayout(QVBoxLayout()))
+        self.scrollArea_2.setWidgetResizable(True)
         templates = self.bd_manager.get_active_templates()
         layout = QVBoxLayout()
         for title, date in templates:
@@ -336,14 +340,13 @@ class Window(QMainWindow):
 
     def add_special_day(self):
         """Adds a new template to the schedule"""
-        # if self.is_logined:
-        print(1)
-        self._init_add_sched_window()
-        self.set_schedule_on_day_window.show()
-        print(1.5)
-        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
-        # else:
-        #     self.locked_window.show()
+        if self.is_logined:
+            print(1)
+            self._init_add_sched_window()
+            self.set_schedule_on_day_window.show()
+            print(1.5)
+        else:
+            self.locked_window.show()
 
     def finish000templ(self):
         print(self.sender())
@@ -395,12 +398,12 @@ class Window(QMainWindow):
 
     def delete_special_day(self):
         """Allows you to remove an unwanted day from the schedule"""
-        # if self.is_logined:
-        self._init_delete_sched_window()
-        self.delete_schedule_on_day_window.show()
-        self.delete_schedule_on_day_window.ok_delete_button.clicked.connect(self.finish_deleting_template)
-        # else:
-        #     self.locked_window.show()
+        if self.is_logined:
+            self._init_delete_sched_window()
+            self.delete_schedule_on_day_window.show()
+            self.delete_schedule_on_day_window.ok_delete_button.clicked.connect(self.finish_deleting_template)
+        else:
+            self.locked_window.show()
 
     def finish_deleting_template(self):
         for i in self.chekboxes:
@@ -490,26 +493,46 @@ class Window(QMainWindow):
             'border: 0px'
         )
         group_box.setLayout(layout)
-        self.choose_defoult_template.scrollArea.setWidget(group_box)
-        self.choose_defoult_template.scrollArea.setWidgetResizable(True)
+        self.choose_defoult_template.scrollArea_2.setWidget(group_box)
+        self.choose_defoult_template.scrollArea_2.setWidgetResizable(True)
 
     def chanhged_defoult(self):
         self.defoult_template = self.sender().text()
 
     def set_item_to_template(self):
         templates = self.bd_manager.get_list_template_for_comobox()
-        layout = QVBoxLayout()
-        for i in templates:
+        print(templates)
+        self.layout = QHBoxLayout(self)
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents)
+        self.layout.addWidget(self.scrollArea_5)
+        x = 0
+        y = 0
+        for ind, i in enumerate(templates):
             widget = uic.loadUi('ui/one_template.ui')
             widget.title.setText(i[0])
             widget.edit_template.clicked.connect(self.refactor_template)
-            layout.addWidget(widget)
-        # position = [(i, j) for i in range(5) for j in range(4)]
-        # layout.addWidget(self.add_templ)
-        self.scrollArea_5.setLayout(layout)
-        # self.choose_defoult_template.scrollArea.setWidget(group_box)
-        self.scrollArea_5.setWidgetResizable(True)
-        # https://zetcode.com/pyqt6/layout/
+            if y > 3:
+                x += 1
+                y = 0
+            self.gridLayout.addWidget(widget, x, y)
+            y += 1
+
+    # templates = self.bd_manager.get_list_template_for_comobox()
+    # layout = QVBoxLayout()
+    # for i in templates:
+    #     widget = uic.loadUi('ui/one_template.ui')
+    #     widget.title.setText(i[0])
+    #     widget.edit_template.clicked.connect(self.refactor_template)
+    #     layout.addWidget(widget)
+    # # position = [(i, j) for i in range(5) for j in range(4)]
+    # # layout.addWidget(self.add_templ)
+    # self.scrollArea_5.setLayout(layout)
+    # # self.choose_defoult_template.scrollArea.setWidget(group_box)
+    # self.scrollArea_5.setWidgetResizable(True)
+    # # https://zetcode.com/pyqt6/layout/
 
     def refactor_template(self):
         pass
