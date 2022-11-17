@@ -271,7 +271,7 @@ background-color: rgb(255,160,0, 0);
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="set_schedule_button">
+     <widget class="QPushButton" name="ADD_schedule_button">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -301,36 +301,6 @@ color: white</string>
        <string>Add</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="edit_schedule_button">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>520</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Yandex Sans Text</family>
-        <pointsize>16</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-radius : 10; 
-border : 0px solid white;
-background-color: #0080ff;
-color: white</string>
-      </property>
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
      <widget class="QScrollArea" name="scrollArea_2">
       <property name="geometry">
        <rect>
@@ -352,6 +322,9 @@ color: white</string>
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
       <widget class="QWidget" name="scrollAreaWidgetContents_2">
        <property name="geometry">
         <rect>
@@ -364,10 +337,10 @@ color: white</string>
        <layout class="QVBoxLayout" name="verticalLayout"/>
       </widget>
      </widget>
-     <widget class="QPushButton" name="set_schedule_button_2">
+     <widget class="QPushButton" name="DELETE_schedule_button">
       <property name="geometry">
        <rect>
-        <x>570</x>
+        <x>430</x>
         <y>520</y>
         <width>161</width>
         <height>31</height>

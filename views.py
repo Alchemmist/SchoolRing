@@ -11,9 +11,10 @@ from PyQt6.QtWidgets import (
     QRadioButton,
     QVBoxLayout,
     QGridLayout,
-    QFileDialog
+    QFileDialog,
+    QCheckBox
 )
-from PyQt6 import QtGui, QtWidgets
+from PyQt6 import QtGui, QtWidgets, QtCore
 
 from base_of_data import DataBaseManager
 
@@ -22,8 +23,6 @@ from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginE
 
 from services import LoginData, RegistrData
 from services import ringsystem_power, serch_time_for_nearest_ring
-
-from time import sleep
 
 # Encoding for the time module with days of the week
 translator_of_weekday = {
@@ -77,13 +76,13 @@ class Window(QMainWindow):
 
         self.set_schedule_on_day_window = uic.loadUi('ui/set_schedul_on_day.ui')
         self.delete_schedule_on_day_window = uic.loadUi('ui/delete_schedul_on_day.ui')
-        self.edit_schedule_on_day_window = uic.loadUi('ui/edit_schedul_on_day.ui')
 
         self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
-        self.templ = uic.loadUi('ui/one_template.ui')
         self.add_templ = uic.loadUi('ui/add_template_frame.ui')
         self.active_schedule_window = uic.loadUi('ui/active_schedule.ui')
         self.naming_temp = uic.loadUi('ui/get_name_templ.ui')
+
+        self.locked_window = uic.loadUi('ui/lock.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -96,10 +95,8 @@ class Window(QMainWindow):
         self.login_button_cerkle.clicked.connect(self.authorization)
         self.login_button_text.clicked.connect(self.authorization)
         # timetable
-        # self.edit_schedule_button.add_schedule_button.clicked.connect(self.add_special_day)
-        # self.edit_schedule_on_day.add_schedule_button.clicked.connect(self.edit_special_day)
-        # self.delete_schedule_on_day.ok_delete_button.clicked.connect(self.delete_special_day)
-        # self.edit_schedule_button.clicked.connect(self.edit_schedule)
+        self.DELETE_schedule_button.clicked.connect(self.delete_special_day)
+        self.ADD_schedule_button.clicked.connect(self.add_special_day)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
         self.add_templ.new_template_button.clicked.connect(self.create_template)
@@ -183,7 +180,6 @@ class Window(QMainWindow):
         try:
             self.data = self.get_reg_data()
             checker = RegistrChecker(self.data)
-            print(checker.is_correct)
             if checker.is_correct:
                 self.sucsesfully_registration()
         except PhoneError:
@@ -302,7 +298,8 @@ class Window(QMainWindow):
         """Displaying actual data on widgets on a timetable page"""
 
         self._init_list_special_day()
-        self._init_edit_sched_window()
+        self._init_add_sched_window()
+        self._init_delete_sched_window()
 
     def _init_list_special_day(self):
         templates = self.bd_manager.get_active_templates()
@@ -320,58 +317,102 @@ class Window(QMainWindow):
         self.scrollArea_2.setWidget(group_box)
         self.scrollArea_2.setWidgetResizable(True)
 
-    def _init_edit_sched_window(self):
+    def _init_add_sched_window(self):
         """Displaying actual data on widgets on a edit_schedule_window"""
 
         self.__fill_combobox()
         self.__init_taddy_date()
 
     def __fill_combobox(self):
-        for i in self.bd_manager.get_list_template():
-            self.set_schedule_on_day.templates_combobox.addItem(i[0])
+        self.set_schedule_on_day_window.templates_combobox.clear()
+        templates = self.bd_manager.get_list_template_for_comobox()
+        for i in templates:
+            self.set_schedule_on_day_window.templates_combobox.addItem(i[0])
         # self.set_schedule_on_day.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
 
     def __init_taddy_date(self):
-        self.set_schedule_on_day.dateEdit.setDisplayFormat("dd-MM-yyyy")
-        self.set_schedule_on_day.dateEdit.setDate(datetime.date.today())
+        self.set_schedule_on_day_window.dateEdit.setDisplayFormat("dd-MM-yyyy")
+        self.set_schedule_on_day_window.dateEdit.setDate(datetime.date.today())
 
     def add_special_day(self):
-        self.set_schedule_on_day.show()
-        self.set_schedule_on_day.add_schedule_button.clicked.connect(self.finish_adding_template)
+        """Adds a new template to the schedule"""
+        # if self.is_logined:
+        print(1)
+        self._init_add_sched_window()
+        self.set_schedule_on_day_window.show()
+        print(1.5)
+        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
+        # else:
+        #     self.locked_window.show()
 
-    def finish_adding_template(self):
-        template = self.set_schedule_on_day.templates_combobox.currentText()
-        date = str(self.set_schedule_on_day.dateEdit.text())
+    def finish000templ(self):
+        print(self.sender())
+        print(2)
+        template = self.set_schedule_on_day_window.templates_combobox.currentText()
+        date = str(self.set_schedule_on_day_window.dateEdit.text()).replace('-', '.')
+        print('-------')
+        print(template)
+        print(date)
+        print('-------')
 
         self._save_to_bd(template, date)
         self._init_list_special_day()
-        self.set_schedule_on_day.hide()
+        self.set_schedule_on_day_window.hide()
 
     def _save_to_bd(self, template, date):
+        print('save my method')
         self.bd_manager.add_special_date(template, date)
 
+    def _init_delete_sched_window(self):
+        self.__fill_chekbox()
+
+    def __fill_chekbox(self):
+        templates = self.bd_manager.get_active_templates()
+        layout = QVBoxLayout()
+
+        self.chekboxes = []
+
+        for title, date in templates:
+            widget = QCheckBox(f'{title}, {date}')
+
+            f = widget.font()
+            f.setPointSize(17)  # sets the size to 27
+            widget.setFont(f)
+            widget.setStyleSheet(
+                'color: white'
+            )
+
+            self.chekboxes.append(widget)
+            layout.addWidget(widget)
+        group_box = QGroupBox()
+        group_box.setStyleSheet(
+            'border: 0px'
+        )
+        group_box.setLayout(layout)
+
+        self.delete_schedule_on_day_window.scrollArea.setWidget(group_box)
+        self.delete_schedule_on_day_window.scrollArea.setWidgetResizable(True)
+
     def delete_special_day(self):
-        pass
+        """Allows you to remove an unwanted day from the schedule"""
+        # if self.is_logined:
+        self._init_delete_sched_window()
+        self.delete_schedule_on_day_window.show()
+        self.delete_schedule_on_day_window.ok_delete_button.clicked.connect(self.finish_deleting_template)
+        # else:
+        #     self.locked_window.show()
 
-    def edit_special_day(self):
-        self.edit_schedule_on_day.show()
-        self.edit_schedule_on_day.add_schedule_button.clicked.connect(self.finish_editing_template())
-
-    def finish_editing_template(self):
-        template = self.edit_schedule_on_day.templates_combobox.currentText()
-        date = str(self.edit_schedule_on_day.dateEdit.text())
-        id = self.bd_manager.get_id_template(title=template, date=date)
-
-        self._update_in_bd(template, date, id)
+    def finish_deleting_template(self):
+        for i in self.chekboxes:
+            if i.isChecked():
+                temaplate, date = i.text().split(', ')
+                self.bd_manager.delete_special_date(temaplate, date)
         self._init_list_special_day()
-        self.edit_schedule_on_day.hide()
-
-    def _update_in_bd(self, template, date, id):
-        self.bd_manager.update_special_date(template, date, id)
+        self.delete_schedule_on_day_window.hide()
 
     def add_row_to_schedule(self):
-        currentRowCount = self.set_schedule_on_day.tableWidget.rowCount()
-        self.set_schedule_on_day.tableWidget.insertRow(currentRowCount)
+        currentRowCount = self.set_schedule_on_day_window.tableWidget.rowCount()
+        self.set_schedule_on_day_window.tableWidget.insertRow(currentRowCount)
         # self.chenge_tableitem_as_template()
 
     def choosing_file(self):
@@ -383,35 +424,34 @@ class Window(QMainWindow):
 
     def choose_music_file(self):
         file_name = self.choosing_file()
-        self.set_schedule_on_day.file_name_edit.setText(file_name)
-        self.set_schedule_on_day.hide()
-        self.set_schedule_on_day.show()
+        self.set_schedule_on_day_window.file_name_edit.setText(file_name)
+        self.set_schedule_on_day_window.hide()
+        self.set_schedule_on_day_window.show()
 
     def chenge_tableitem_as_template(self):
-        self.template = self.bd_manager.get_schedule(self.set_schedule_on_day.templates_combobox.currentText())
-        self.set_schedule_on_day.tableWidget.setRowCount(len(self.template))
+        self.template = self.bd_manager.get_schedule(self.set_schedule_on_day_window.templates_combobox.currentText())
+        self.set_schedule_on_day_window.tableWidget.setRowCount(len(self.template))
         for i, value in enumerate(self.template):
-            self.set_schedule_on_day.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
-            self.set_schedule_on_day.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
-            self.set_schedule_on_day.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
-        self.set_schedule_on_day.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+            self.set_schedule_on_day_window.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
+            self.set_schedule_on_day_window.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
+            self.set_schedule_on_day_window.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
+        self.set_schedule_on_day_window.finish_creating_button.clicked.connect(self.finish_creating_schedule)
 
     def finish_creating_schedule(self):
         self.save_schedule()
-        self.set_schedule_on_day.hide()
+        self.set_schedule_on_day_window.hide()
         # self.add_to_timetable()
 
     def save_schedule(self):
-        rows = self.set_schedule_on_day.tableWidget.rowCount()
-        cols = self.set_schedule_on_day.tableWidget.columnCount()
+        rows = self.set_schedule_on_day_window.tableWidget.rowCount()
+        cols = self.set_schedule_on_day_window.tableWidget.columnCount()
         for row in range(rows):
             finish = []
             for col in range(cols):
                 try:
-                    finish.append(self.set_schedule_on_day.tableWidget.item(row, col).text())
+                    finish.append(self.set_schedule_on_day_window.tableWidget.item(row, col).text())
                 except:
                     pass
-            print(finish)
             self.bd_manager.save_shedule_row(finish)
 
     def change_defoult_template(self):
@@ -428,10 +468,22 @@ class Window(QMainWindow):
         layout = QVBoxLayout()
         for i in templates:
             widget = QRadioButton(i)
-            widget.setStyleSheet('background-color: #0080ff;\nborder-radius: 10;\ncolor: white\n')
-            widget.setGeometry(100, 100, 273, 35)
-            widget.setFixedSize(273, 35)
+            widget.setStyleSheet(
+                'background-color: #0080ff;\n'
+                'border-radius: 10;\n'
+                'color: white\n'
+            )
+            widget.setGeometry(100, 100, 273, 45)
+            widget.setFixedSize(273, 45)
             widget.toggled.connect(self.chanhged_defoult)
+
+            f = widget.font()
+            f.setPointSize(13)  # sets the size to 27
+            widget.setFont(f)
+            widget.setStyleSheet(
+                'color: white'
+            )
+
             layout.addWidget(widget)
         group_box = QGroupBox()
         group_box.setStyleSheet(
@@ -445,15 +497,15 @@ class Window(QMainWindow):
         self.defoult_template = self.sender().text()
 
     def set_item_to_template(self):
-        templates = self.bd_manager.get_all_templates()
-        layout = QGridLayout()
+        templates = self.bd_manager.get_list_template_for_comobox()
+        layout = QVBoxLayout()
         for i in templates:
-            widget = self.templ
-            widget.title.setText(i)
+            widget = uic.loadUi('ui/one_template.ui')
+            widget.title.setText(i[0])
             widget.edit_template.clicked.connect(self.refactor_template)
             layout.addWidget(widget)
-        position = [(i, j) for i in range(5) for j in range(4)]
-        layout.addWidget(self.add_templ)
+        # position = [(i, j) for i in range(5) for j in range(4)]
+        # layout.addWidget(self.add_templ)
         self.scrollArea_5.setLayout(layout)
         # self.choose_defoult_template.scrollArea.setWidget(group_box)
         self.scrollArea_5.setWidgetResizable(True)
@@ -463,7 +515,7 @@ class Window(QMainWindow):
         pass
 
     def create_template(self):
-        self.set_schedule_on_day.show()
+        self.set_schedule_on_day_window.show()
         self._fill_combobox()
         self._init_taddy_date()
         self.naming_template()
@@ -475,7 +527,7 @@ class Window(QMainWindow):
 
     def finish_neming(self):
         self.title_for_new_templ = self.naming_temp.name_lineEdit.text()
-        self.set_schedule_on_day.templates_combobox.addItem(self.title_for_new_templ)
+        self.set_schedule_on_day_window.templates_combobox.addItem(self.title_for_new_templ)
         self.naming_temp.hide()
 
 

@@ -87,7 +87,7 @@ class DataBaseManager:
     def get_active_templates(self):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        templates = cur.execute(f'SELECT title, date FROM template WHERE date').fetchall()
+        templates = cur.execute(f'SELECT title, date FROM template WHERE NOT (date is NULL)').fetchall()
         return templates
 
     def get_id_template(self, title, date):
@@ -97,6 +97,7 @@ class DataBaseManager:
         return templates[0]
 
     def add_special_date(self, template, date):
+        print('true save')
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
         comand = f'INSERT INTO template(title, date) ' \
@@ -112,3 +113,18 @@ class DataBaseManager:
                  f'WHERE id="{id}"'
         cur.execute(comand).fetchall()
         con.commit()
+
+    def delete_special_date(self, template, date):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'DELETE FROM template ' \
+                 f'WHERE title="{template}" AND date="{date}"'
+        cur.execute(comand).fetchall()
+        con.commit()
+
+    def get_list_template_for_comobox(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT title FROM template WHERE date is NULL'
+        return cur.execute(comand).fetchall()
+

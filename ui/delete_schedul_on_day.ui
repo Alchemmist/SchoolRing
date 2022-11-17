@@ -49,8 +49,20 @@
      <height>311</height>
     </rect>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
    <property name="widgetResizable">
     <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
    <widget class="QWidget" name="scrollAreaWidgetContents">
     <property name="geometry">
