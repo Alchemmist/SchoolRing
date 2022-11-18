@@ -80,7 +80,7 @@ class DataBaseManager:
     def get_all_templates(self):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        templates = cur.execute(f'SELECT title FROM template').fetchall()
+        templates = cur.execute(f'SELECT title FROM template WHERE NOT (title is NULL )').fetchall()
         finish_lst = [i[0] for i in templates]
         return finish_lst
 
@@ -128,3 +128,10 @@ class DataBaseManager:
         comand = f'SELECT title FROM template WHERE date is NULL'
         return cur.execute(comand).fetchall()
 
+    def add_template(self, name):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'INSERT INTO template(title)' \
+                 f'VALUES("{name}")'
+        cur.execute(comand).fetchall()
+        con.commit()

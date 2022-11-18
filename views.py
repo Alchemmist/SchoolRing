@@ -83,6 +83,8 @@ class Window(QMainWindow):
         self.active_schedule_window = uic.loadUi('ui/active_schedule.ui')
         self.naming_temp = uic.loadUi('ui/get_name_templ.ui')
 
+        self.new_template = uic.loadUi('ui/create_schedule.ui')
+
         self.locked_window = uic.loadUi('ui/lock.ui')
 
     def connect_button(self):
@@ -101,7 +103,13 @@ class Window(QMainWindow):
         self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
-        self.add_templ.new_template_button.clicked.connect(self.create_template)
+
+        # edit template
+        self.new_template.add_row_button.clicked.connect(self.add_row_to_schedule)
+        self.new_template.browse_file_button.clicked.connect(self.choose_music_file)
+
+        # self.add_templ.new_template_button.clicked.connect(self.naming_template)
+
         # self.add_template_button.clicked.connect(self.create_template)
         # self.???.clicked.connect(self.edit_template)
 
@@ -324,17 +332,17 @@ class Window(QMainWindow):
     def _init_add_sched_window(self):
         """Displaying actual data on widgets on a edit_schedule_window"""
 
-        self.__fill_combobox()
-        self.__init_taddy_date()
+        self.__fill_combobox_for_timetable()
+        self.__init_taddy_date_for_timetable()
 
-    def __fill_combobox(self):
-        self.set_schedule_on_day_window.templates_combobox.clear()
+    def __fill_combobox_for_timetable(self):
+        self.set_schedule_on_day_window.time_tamble_combobox.clear()
         templates = self.bd_manager.get_list_template_for_comobox()
         for i in templates:
-            self.set_schedule_on_day_window.templates_combobox.addItem(i[0])
+            self.set_schedule_on_day_window.time_tamble_combobox.addItem(i[0])
         # self.set_schedule_on_day.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
 
-    def __init_taddy_date(self):
+    def __init_taddy_date_for_timetable(self):
         self.set_schedule_on_day_window.dateEdit.setDisplayFormat("dd-MM-yyyy")
         self.set_schedule_on_day_window.dateEdit.setDate(datetime.date.today())
 
@@ -459,7 +467,9 @@ class Window(QMainWindow):
 
     def change_defoult_template(self):
         self.choose_defoult_template.show()
+        print(1)
         self.init_template_radiobutton()
+        print(2)
         self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
 
     def save_defoult_template(self):
@@ -493,8 +503,8 @@ class Window(QMainWindow):
             'border: 0px'
         )
         group_box.setLayout(layout)
-        self.choose_defoult_template.scrollArea_2.setWidget(group_box)
-        self.choose_defoult_template.scrollArea_2.setWidgetResizable(True)
+        self.choose_defoult_template.scrollArea_6.setWidget(group_box)
+        self.choose_defoult_template.scrollArea_6.setWidgetResizable(True)
 
     def chanhged_defoult(self):
         self.defoult_template = self.sender().text()
@@ -519,30 +529,34 @@ class Window(QMainWindow):
                 y = 0
             self.gridLayout.addWidget(widget, x, y)
             y += 1
-
-    # templates = self.bd_manager.get_list_template_for_comobox()
-    # layout = QVBoxLayout()
-    # for i in templates:
-    #     widget = uic.loadUi('ui/one_template.ui')
-    #     widget.title.setText(i[0])
-    #     widget.edit_template.clicked.connect(self.refactor_template)
-    #     layout.addWidget(widget)
-    # # position = [(i, j) for i in range(5) for j in range(4)]
-    # # layout.addWidget(self.add_templ)
-    # self.scrollArea_5.setLayout(layout)
-    # # self.choose_defoult_template.scrollArea.setWidget(group_box)
-    # self.scrollArea_5.setWidgetResizable(True)
-    # # https://zetcode.com/pyqt6/layout/
+        widget = uic.loadUi('ui/add_template_frame.ui')
+        widget.new_template_button.clicked.connect(self.create_template)
+        if y > 3:
+            y = 0
+            x += 1
+        self.gridLayout.addWidget(widget, x, y)
 
     def refactor_template(self):
         pass
 
     def create_template(self):
-        self.set_schedule_on_day_window.show()
-        self._fill_combobox()
-        self._init_taddy_date()
-        self.naming_template()
-        # code
+        self.new_template.show()
+        self.__fill_combobox_for_template()
+        self.__init_taddy_date_for_template()
+
+    def __fill_combobox_for_template(self):
+        self.new_template.templates_combobox.clear()
+        templates = self.bd_manager.get_list_template_for_comobox()
+        for i in templates:
+            self.new_template.templates_combobox.addItem(i[0])
+
+        self.new_template.templates_combobox.addItem('New')
+        self.new_template.templates_combobox.setCurrentText('New')
+        # self.set_schedule_on_day.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+
+    def __init_taddy_date_for_template(self):
+        self.new_template.DateEdit_2.setDisplayFormat("dd-MM-yyyy")
+        self.new_template.DateEdit_2.setDate(datetime.date.today())
 
     def naming_template(self):
         self.naming_temp.show()
@@ -550,8 +564,11 @@ class Window(QMainWindow):
 
     def finish_neming(self):
         self.title_for_new_templ = self.naming_temp.name_lineEdit.text()
-        self.set_schedule_on_day_window.templates_combobox.addItem(self.title_for_new_templ)
+        self.new_template.templates_combobox.addItem(self.title_for_new_templ)
         self.naming_temp.hide()
+        name = self.naming_temp.name_lineEdit.text()
+        self.bd_manager.add_template(name)
+        self.create_template()
 
 
 def window_power():
