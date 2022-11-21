@@ -69,11 +69,11 @@ class DataBaseManager:
         comand = f'SELECT title, play_time, music FROM schedule WHERE template = "{template_id}"'
         return cur.execute(comand).fetchall()
 
-    def save_shedule_row(self, data: list):
+    def save_shedule_row(self, data: list, temp_id):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'INSERT INTO schedule(title, play_time, music) ' \
-                 f'VALUES("{data[0]}", "{data[1]}", "{data[2]}")'
+        comand = f'INSERT INTO schedule(title, play_time, music, template) ' \
+                 f'VALUES("{data[0]}", "{data[1]}", "{data[2]}", "{temp_id}")'
         cur.execute(comand).fetchall()
         con.commit()
 
@@ -90,10 +90,10 @@ class DataBaseManager:
         templates = cur.execute(f'SELECT title, date FROM template WHERE NOT (date is NULL)').fetchall()
         return templates
 
-    def get_id_template(self, title, date):
+    def get_id_template(self, title):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        templates = cur.execute(f'SELECT id FROM template WHERE title="{title}" AND date="{date}"').fetchall()
+        templates = cur.execute(f'SELECT id FROM template WHERE title="{title}"').fetchall()
         return templates[0]
 
     def add_special_date(self, template, date):

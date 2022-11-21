@@ -97,6 +97,8 @@ class Window(QMainWindow):
         # authorization
         self.login_button_cerkle.clicked.connect(self.authorization)
         self.login_button_text.clicked.connect(self.authorization)
+        self.authorization_window.start_login_button.clicked.connect(self.logining)
+        self.authorization_window.start_regisration_button.clicked.connect(self.registring)
         # timetable
         self.DELETE_schedule_button.clicked.connect(self.delete_special_day)
         self.ADD_schedule_button.clicked.connect(self.add_special_day)
@@ -107,6 +109,7 @@ class Window(QMainWindow):
         # edit template
         self.new_template.add_row_button.clicked.connect(self.add_row_to_schedule)
         self.new_template.browse_file_button.clicked.connect(self.choose_music_file)
+        self.new_template.finish_creating_button.clicked.connect(self.finish_creating_schedule)
 
         # self.add_templ.new_template_button.clicked.connect(self.naming_template)
 
@@ -116,8 +119,6 @@ class Window(QMainWindow):
     def go_home(self):
         """Switching tub to Home page"""
 
-        self.authorization_window.start_login_button.clicked.connect(self.logining)
-        self.authorization_window.start_regisration_button.clicked.connect(self.registring)
         self.stackedWidget.setCurrentIndex(0)
         self._init_nearest_widget()
 
@@ -359,7 +360,7 @@ class Window(QMainWindow):
     def finish000templ(self):
         print(self.sender())
         print(2)
-        template = self.set_schedule_on_day_window.templates_combobox.currentText()
+        template = self.set_schedule_on_day_window.time_tamble_combobox.currentText()
         date = str(self.set_schedule_on_day_window.dateEdit.text()).replace('-', '.')
         print('-------')
         print(template)
@@ -422,8 +423,8 @@ class Window(QMainWindow):
         self.delete_schedule_on_day_window.hide()
 
     def add_row_to_schedule(self):
-        currentRowCount = self.set_schedule_on_day_window.tableWidget.rowCount()
-        self.set_schedule_on_day_window.tableWidget.insertRow(currentRowCount)
+        currentRowCount = self.new_template.tableWidget.rowCount()
+        self.new_template.tableWidget.insertRow(currentRowCount)
         # self.chenge_tableitem_as_template()
 
     def choosing_file(self):
@@ -435,35 +436,40 @@ class Window(QMainWindow):
 
     def choose_music_file(self):
         file_name = self.choosing_file()
-        self.set_schedule_on_day_window.file_name_edit.setText(file_name)
-        self.set_schedule_on_day_window.hide()
-        self.set_schedule_on_day_window.show()
+        self.new_template.file_name_edit.setText(file_name)
+        self.new_template.hide()
+        self.new_template.show()
 
     def chenge_tableitem_as_template(self):
-        self.template = self.bd_manager.get_schedule(self.set_schedule_on_day_window.templates_combobox.currentText())
-        self.set_schedule_on_day_window.tableWidget.setRowCount(len(self.template))
-        for i, value in enumerate(self.template):
-            self.set_schedule_on_day_window.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
-            self.set_schedule_on_day_window.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
-            self.set_schedule_on_day_window.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
-        self.set_schedule_on_day_window.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+        combobx_text = self.new_template.templates_combobox.currentText()
+        if combobx_text == 'New' or combobx_text == '':
+            self.new_template.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(''))
+            self.new_template.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(''))
+            self.new_template.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(''))
+        else:
+            self.template = self.bd_manager.get_schedule(combobx_text)
+            self.new_template.tableWidget.setRowCount(len(self.template))
+            for i, value in enumerate(self.template):
+                self.new_template.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(value[0]))
+                self.new_template.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(value[1]))
+                self.new_template.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(value[2]))
 
     def finish_creating_schedule(self):
-        self.save_schedule()
-        self.set_schedule_on_day_window.hide()
+        self.naming_template()
         # self.add_to_timetable()
 
-    def save_schedule(self):
-        rows = self.set_schedule_on_day_window.tableWidget.rowCount()
-        cols = self.set_schedule_on_day_window.tableWidget.columnCount()
+    def save_schedule(self, temp_name):
+        rows = self.new_template.tableWidget.rowCount()
+        cols = self.new_template.tableWidget.columnCount()
+        temp_id = self.bd_manager.get_id_template(temp_name)[0]
         for row in range(rows):
             finish = []
             for col in range(cols):
                 try:
-                    finish.append(self.set_schedule_on_day_window.tableWidget.item(row, col).text())
+                    finish.append(self.new_template.tableWidget.item(row, col).text())
                 except:
                     pass
-            self.bd_manager.save_shedule_row(finish)
+            self.bd_manager.save_shedule_row(finish, temp_id)
 
     def change_defoult_template(self):
         self.choose_defoult_template.show()
@@ -543,6 +549,7 @@ class Window(QMainWindow):
         self.new_template.show()
         self.__fill_combobox_for_template()
         self.__init_taddy_date_for_template()
+        self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
 
     def __fill_combobox_for_template(self):
         self.new_template.templates_combobox.clear()
@@ -564,11 +571,12 @@ class Window(QMainWindow):
 
     def finish_neming(self):
         self.title_for_new_templ = self.naming_temp.name_lineEdit.text()
-        self.new_template.templates_combobox.addItem(self.title_for_new_templ)
-        self.naming_temp.hide()
         name = self.naming_temp.name_lineEdit.text()
         self.bd_manager.add_template(name)
-        self.create_template()
+        self.save_schedule(name)
+        self.new_template.hide()
+        self.naming_temp.hide()
+        self.set_item_to_template()
 
 
 def window_power():
