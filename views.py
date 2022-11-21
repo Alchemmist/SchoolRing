@@ -441,11 +441,10 @@ class Window(QMainWindow):
         self.new_template.show()
 
     def chenge_tableitem_as_template(self):
+        self.new_template.tableWidget.clearSpans()
         combobx_text = self.new_template.templates_combobox.currentText()
-        if combobx_text == 'New' or combobx_text == '':
-            self.new_template.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(''))
-            self.new_template.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(''))
-            self.new_template.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(''))
+        if combobx_text == '' or combobx_text == 'New':
+            self.new_template.tableWidget.clearSpans()
         else:
             self.template = self.bd_manager.get_schedule(combobx_text)
             self.new_template.tableWidget.setRowCount(len(self.template))

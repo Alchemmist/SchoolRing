@@ -51,7 +51,7 @@ border-radius: 30;</string>
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_error">
    <property name="geometry">
     <rect>
      <x>120</x>
