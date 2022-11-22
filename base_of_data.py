@@ -103,8 +103,8 @@ class DataBaseManager:
         print('true save')
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'INSERT INTO template(title, date) ' \
-                 f'VALUES("{template}", "{date}")'
+        comand = f'INSERT INTO template(title, date, default) ' \
+                 f'VALUES("{template}", "{date}", "{0}")'
         cur.execute(comand).fetchall()
         con.commit()
 
@@ -182,8 +182,12 @@ class DataBaseManager:
     def get_special_date_on_today(self):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'SELECT date FROM template WHERE date="{datetime.date.today()}"'
+        a = f"{datetime.date.today(): %d-%m-%Y}"
+        date = a.replace('-', '.')
+        date = date.replace(' ', '')
+        comand = f'SELECT id FROM template WHERE date="{date}"'
         result = cur.execute(comand).fetchall()
+        print(result)
         try:
             return result[0][0]
         except Exception:
@@ -191,3 +195,11 @@ class DataBaseManager:
 
     def clear_changes(self):
         self._clear()
+
+    def get_perents_tempolate_id(self, special_id):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT id FROM template WHERE title in (SELECT title FROM template WHERE id={special_id}) ' \
+                 f'AND date IS NULL'
+        result = cur.execute(comand).fetchall()
+        return result[0][0]

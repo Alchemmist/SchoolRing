@@ -35,8 +35,10 @@ class RingManager:
         """Aggregator for streaming time tracking and call playback"""
 
         special_id = self.bd_manager.get_special_date_on_today()
+        print('специальный айди -____>', special_id)
         if special_id:
-            self.today_sched = self.bd_manager.get_schedule_today(template_id=special_id)
+            new_special_id = self.bd_manager.get_perents_tempolate_id(special_id)
+            self.today_sched = self.bd_manager.get_schedule_today(template_id=new_special_id)
             self.run_schedule()
         else:
             self.today_sched = self.bd_manager.get_default_schedule()
