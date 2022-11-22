@@ -48,12 +48,12 @@ class DataBaseManager:
         comand = f'SELECT password FROM users WHERE login="{login}"'
         return cur.execute(comand).fetchall()
 
-    def get_schedule_today(self):
+    def get_schedule_today(self, template_id):
         """Gets the call schedule for today"""
 
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'SELECT play_time, music, title FROM schedule WHERE template=2'
+        comand = f'SELECT play_time, music, title FROM schedule WHERE template={template_id}'
         return cur.execute(comand).fetchall()
 
     def get_list_template(self):
@@ -94,7 +94,10 @@ class DataBaseManager:
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
         templates = cur.execute(f'SELECT id FROM template WHERE title="{title}"').fetchall()
-        return templates[0]
+        if templates:
+            return templates[0]
+        else:
+            return ''
 
     def add_special_date(self, template, date):
         print('true save')
@@ -135,3 +138,33 @@ class DataBaseManager:
                  f'VALUES("{name}")'
         cur.execute(comand).fetchall()
         con.commit()
+
+    def save_default(self, title):
+        self._clear()
+        self._set(title)
+
+    def _clear(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'UPDATE template ' \
+                 f'SET "default"=0'
+        cur.execute(comand).fetchall()
+        con.commit()
+
+    def _set(self, title):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'UPDATE template ' \
+                 f'SET "default"=1 ' \
+                 f'WHERE title="{title}"'
+        cur.execute(comand).fetchall()
+        con.commit()
+
+    def get_default_schedule(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT play_time, music, title FROM schedule ' \
+                 f'WHERE template in (SELECT id FROM template WHERE "default"=1)'
+        result = cur.execute(comand).fetchall()
+        print(result)
+        return result

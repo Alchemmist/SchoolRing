@@ -1,5 +1,6 @@
 import time
 from typing import NamedTuple
+from multiprocessing import Queue
 
 import schedule
 from audioplayer import AudioPlayer
@@ -34,14 +35,22 @@ class RingManager:
     def start_work(self):
         """Aggregator for streaming time tracking and call playback"""
 
-        self.today_sched = self.bd_manager.get_schedule_today()
-        self.go_schedule()
+        special_id = self.serch_template_id_for_today()
+        if special_id:
+            self.today_sched = self.bd_manager.get_schedule_today(template_id=special_id)
+            self.run_schedule()
+        else:
+            self.today_sched = self.bd_manager.get_default_schedule()
+            self.run_schedule()
 
-    def go_schedule(self):
+    def serch_template_id_for_today(self):
+        pass
+
+    def run_schedule(self):
         """Generates and runs a schedule for today"""
-
+        print(self.today_sched)
         for i in self.today_sched:
-            schedule.every().day.at(i[0]).do(ring, 'atac_titan_opening.mp3')
+            schedule.every().day.at(i[0]).do(ring, i[1])
         # test:
         # schedule.every(3).seconds.do(ring, 'kapla.mp3')
         while True:
@@ -50,9 +59,7 @@ class RingManager:
 
 def ringsystem_power():
     """Generates and runs a schedule for today"""
-
-    rm = RingManager()
-    rm.start_work()
+    RingManager().start_work()
 
 
 def ring(name_music):

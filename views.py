@@ -1,7 +1,10 @@
 import datetime
 import sys
 import threading
+from multiprocessing import Queue
 
+import schedule
+from PyQt6 import QtWidgets
 from PyQt6 import uic
 from PyQt6.QtWidgets import (
     QApplication,
@@ -10,19 +13,14 @@ from PyQt6.QtWidgets import (
     QGroupBox,
     QRadioButton,
     QVBoxLayout,
-    QGridLayout,
     QFileDialog,
-    QCheckBox,
-    QScrollArea
+    QCheckBox
 )
-from PyQt6 import QtGui, QtWidgets, QtCore
 
 from base_of_data import DataBaseManager
-
 from datacheking import LoginChecker, RegistrChecker
 from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
-
-from services import LoginData, RegistrData
+from services import LoginData, RegistrData, RingManager
 from services import ringsystem_power, serch_time_for_nearest_ring
 
 # Encoding for the time module with days of the week
@@ -36,6 +34,7 @@ translator_of_weekday = {
     6: 'Воскресенье',
 }
 
+big_check = 0
 
 class Window(QMainWindow):
     """Main user interaction window"""
@@ -110,6 +109,8 @@ class Window(QMainWindow):
         self.new_template.add_row_button.clicked.connect(self.add_row_to_schedule)
         self.new_template.browse_file_button.clicked.connect(self.choose_music_file)
         self.new_template.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+        # named
+        self.naming_temp.finish_naming_button.clicked.connect(self.finish_neming)
 
         # self.add_templ.new_template_button.clicked.connect(self.naming_template)
 
@@ -272,7 +273,7 @@ class Window(QMainWindow):
     def _init_homescroll(self):
         """Displaying data to scrollarea on Home page"""
 
-        self.today_sched = self.bd_manager.get_schedule_today()
+        self.today_sched = self.bd_manager.get_schedule_today(2)
         self.today_sched = sorted(self.today_sched, key=lambda x: x[0])
         layout = QHBoxLayout()
         for i in self.today_sched:
@@ -350,29 +351,20 @@ class Window(QMainWindow):
     def add_special_day(self):
         """Adds a new template to the schedule"""
         if self.is_logined:
-            print(1)
             self._init_add_sched_window()
             self.set_schedule_on_day_window.show()
-            print(1.5)
         else:
             self.locked_window.show()
 
     def finish000templ(self):
-        print(self.sender())
-        print(2)
         template = self.set_schedule_on_day_window.time_tamble_combobox.currentText()
         date = str(self.set_schedule_on_day_window.dateEdit.text()).replace('-', '.')
-        print('-------')
-        print(template)
-        print(date)
-        print('-------')
 
         self._save_to_bd(template, date)
         self._init_list_special_day()
         self.set_schedule_on_day_window.hide()
 
     def _save_to_bd(self, template, date):
-        print('save my method')
         self.bd_manager.add_special_date(template, date)
 
     def _init_delete_sched_window(self):
@@ -443,8 +435,10 @@ class Window(QMainWindow):
     def chenge_tableitem_as_template(self):
         self.new_template.tableWidget.clearSpans()
         combobx_text = self.new_template.templates_combobox.currentText()
+        ch = 0
         if combobx_text == '' or combobx_text == 'New':
-            self.new_template.tableWidget.clearSpans()
+            while self.new_template.tableWidget.rowCount() > 0:
+                self.new_template.tableWidget.removeRow(0)
         else:
             self.template = self.bd_manager.get_schedule(combobx_text)
             self.new_template.tableWidget.setRowCount(len(self.template))
@@ -472,14 +466,14 @@ class Window(QMainWindow):
 
     def change_defoult_template(self):
         self.choose_defoult_template.show()
-        print(1)
         self.init_template_radiobutton()
-        print(2)
         self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
 
     def save_defoult_template(self):
         self.choose_defoult_template.hide()
         self.label.setText(f'По умолчанию - {self.defoult_template}')
+        self.bd_manager.save_default(self.defoult_template)
+        restart_tread()
 
     def init_template_radiobutton(self):
         templates = self.bd_manager.get_all_templates()
@@ -516,7 +510,6 @@ class Window(QMainWindow):
 
     def set_item_to_template(self):
         templates = self.bd_manager.get_list_template_for_comobox()
-        print(templates)
         self.layout = QHBoxLayout(self)
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
@@ -566,7 +559,6 @@ class Window(QMainWindow):
 
     def naming_template(self):
         self.naming_temp.show()
-        self.naming_temp.finish_naming_button.clicked.connect(self.finish_neming)
 
     def finish_neming(self):
         self.title_for_new_templ = self.naming_temp.name_lineEdit.text()
@@ -575,6 +567,7 @@ class Window(QMainWindow):
         self.save_schedule(name)
         self.new_template.hide()
         self.naming_temp.hide()
+        self.naming_temp.name_lineEdit.setText('')
         self.set_item_to_template()
 
 
@@ -586,12 +579,18 @@ def window_power():
     window.show()
     sys.exit(app.exec())
 
+def restart_tread():
+    global big_check
+    big_check += 1
+    ring_power = threading.Thread(target=ringsystem_power)
+    ring_power.start()
+    ring_power.join()
+
 
 if __name__ == '__main__':
     vew_window = threading.Thread(target=window_power)
-    ring_power = threading.Thread(target=ringsystem_power)
-
-    ring_power.start()
     vew_window.start()
     vew_window.join()
-    ring_power.join()
+    while big_check > 0:
+        restart_tread()
+
