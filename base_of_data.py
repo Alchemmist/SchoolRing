@@ -1,5 +1,5 @@
 import sqlite3
-from services import RegistrData
+import datetime
 
 
 class DataBaseManager:
@@ -7,7 +7,7 @@ class DataBaseManager:
     def __init__(self):
         pass
 
-    def add_user(self, data: RegistrData):
+    def add_user(self, data):
         """Adds a new user to the system"""
 
         con = sqlite3.connect('data_base/schoolring.sqlite')
@@ -166,5 +166,28 @@ class DataBaseManager:
         comand = f'SELECT play_time, music, title FROM schedule ' \
                  f'WHERE template in (SELECT id FROM template WHERE "default"=1)'
         result = cur.execute(comand).fetchall()
-        print(result)
         return result
+
+    def check_udate_default(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT "default" FROM template'
+        result = cur.execute(comand).fetchall()
+        finish = []
+        print(result)
+        for i in result:
+            finish.append(i[0])
+        return finish
+
+    def get_special_date_on_today(self):
+        con = sqlite3.connect('data_base/schoolring.sqlite')
+        cur = con.cursor()
+        comand = f'SELECT date FROM template WHERE date="{datetime.date.today()}"'
+        result = cur.execute(comand).fetchall()
+        try:
+            return result[0][0]
+        except Exception:
+            return []
+
+    def clear_changes(self):
+        self._clear()

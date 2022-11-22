@@ -20,7 +20,7 @@ from PyQt6.QtWidgets import (
 from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
 from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
-from services import LoginData, RegistrData, RingManager
+from services import LoginData, RegistrData
 from services import ringsystem_power, serch_time_for_nearest_ring
 
 # Encoding for the time module with days of the week
@@ -473,7 +473,9 @@ class Window(QMainWindow):
         self.choose_defoult_template.hide()
         self.label.setText(f'По умолчанию - {self.defoult_template}')
         self.bd_manager.save_default(self.defoult_template)
-        restart_tread()
+        # self.bd_manager.was_change_default()
+        # stop_event = threading.Event()
+        # threading.Thread(target=, args=[stop_event]).start()
 
     def init_template_radiobutton(self):
         templates = self.bd_manager.get_all_templates()
@@ -579,18 +581,11 @@ def window_power():
     window.show()
     sys.exit(app.exec())
 
-def restart_tread():
-    global big_check
-    big_check += 1
-    ring_power = threading.Thread(target=ringsystem_power)
-    ring_power.start()
-    ring_power.join()
-
 
 if __name__ == '__main__':
     vew_window = threading.Thread(target=window_power)
+    ring_power = threading.Thread(target=ringsystem_power)
+    ring_power.start()
     vew_window.start()
+    ring_power.join()
     vew_window.join()
-    while big_check > 0:
-        restart_tread()
-

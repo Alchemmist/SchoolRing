@@ -1,11 +1,10 @@
 import time
 from typing import NamedTuple
-from multiprocessing import Queue
 
 import schedule
 from audioplayer import AudioPlayer
 
-import base_of_data
+from base_of_data import DataBaseManager
 
 
 class LoginData(NamedTuple):
@@ -30,12 +29,12 @@ class RegistrData(NamedTuple):
 class RingManager:
 
     def __init__(self):
-        self.bd_manager = base_of_data.DataBaseManager()
+        self.bd_manager = DataBaseManager()
 
     def start_work(self):
         """Aggregator for streaming time tracking and call playback"""
 
-        special_id = self.serch_template_id_for_today()
+        special_id = self.bd_manager.get_special_date_on_today()
         if special_id:
             self.today_sched = self.bd_manager.get_schedule_today(template_id=special_id)
             self.run_schedule()
@@ -43,8 +42,6 @@ class RingManager:
             self.today_sched = self.bd_manager.get_default_schedule()
             self.run_schedule()
 
-    def serch_template_id_for_today(self):
-        pass
 
     def run_schedule(self):
         """Generates and runs a schedule for today"""
@@ -59,7 +56,23 @@ class RingManager:
 
 def ringsystem_power():
     """Generates and runs a schedule for today"""
-    RingManager().start_work()
+
+    print('RUN')
+    bd_manager = DataBaseManager()
+    schedule.every(1).minute.do(lambda: check_default(bd_manager))
+    rm = RingManager()
+    rm.start_work()
+
+
+def check_default(bd_manager: DataBaseManager):
+    print('CHECK')
+    key = bd_manager.check_udate_default()
+    print(key)
+    print(type(key))
+    if 1 in key:
+        print('СРАБОТАЛО')
+        bd_manager.clear_changes()
+        ringsystem_power()
 
 
 def ring(name_music):
