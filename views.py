@@ -94,9 +94,9 @@ class Window(QMainWindow):
         self.timetable_button.clicked.connect(self.go_timetable)
         self.template_button.clicked.connect(self.go_template)
         # authorization
-        self.login_button_cerkle.clicked.connect(self.authorization)
-        self.login_button_text.clicked.connect(self.authorization)
-        self.authorization_window.start_login_button.clicked.connect(self.logining)
+        # self.login_button_cerkle.clicked.connect(self.authorization)
+        # self.login_button_text.clicked.connect(self.authorization)
+        # self.authorization_window.start_login_button.clicked.connect(self.logining)
         self.authorization_window.start_regisration_button.clicked.connect(self.registring)
         # timetable
         self.DELETE_schedule_button.clicked.connect(self.delete_special_day)

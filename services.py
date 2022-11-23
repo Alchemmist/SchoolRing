@@ -35,7 +35,7 @@ class RingManager:
         """Aggregator for streaming time tracking and call playback"""
 
         special_id = self.bd_manager.get_special_date_on_today()
-        print('специальный айди -____>', special_id)
+        print('специальный айди ------>', special_id)
         if special_id:
             new_special_id = self.bd_manager.get_perents_tempolate_id(special_id)
             self.today_sched = self.bd_manager.get_schedule_today(template_id=new_special_id)
@@ -68,12 +68,14 @@ def ringsystem_power():
 
 def check_default(bd_manager: DataBaseManager):
     print('CHECK')
-    key = bd_manager.check_udate_default()
-    print(key)
-    print(type(key))
-    if 1 in key:
-        print('СРАБОТАЛО')
-        bd_manager.clear_changes()
+    default_key = bd_manager.check_udate_default()
+    special_key = bd_manager.get_special_date_on_today()
+    if 1 in default_key:
+        print('СРАБОТАЛО default')
+        bd_manager.clear_changes_default()
+        ringsystem_power()
+    if special_key:
+        print('СРАБОТАЛО special')
         ringsystem_power()
 
 

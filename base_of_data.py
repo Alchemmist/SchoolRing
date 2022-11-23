@@ -174,7 +174,6 @@ class DataBaseManager:
         comand = f'SELECT "default" FROM template'
         result = cur.execute(comand).fetchall()
         finish = []
-        print(result)
         for i in result:
             finish.append(i[0])
         return finish
@@ -187,13 +186,12 @@ class DataBaseManager:
         date = date.replace(' ', '')
         comand = f'SELECT id FROM template WHERE date="{date}"'
         result = cur.execute(comand).fetchall()
-        print(result)
         try:
             return result[0][0]
         except Exception:
             return []
 
-    def clear_changes(self):
+    def clear_changes_default(self):
         self._clear()
 
     def get_perents_tempolate_id(self, special_id):
