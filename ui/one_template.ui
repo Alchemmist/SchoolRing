@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">border-radius: 15;
-background-color: rgba(85,85,255, 140);</string>
+background-color: rgba(85,85,255, 230);</string>
   </property>
   <widget class="QLabel" name="title">
    <property name="geometry">

@@ -168,7 +168,7 @@ color: white</string>
   <widget class="QPushButton" name="finish_creating_button">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>20</x>
      <y>530</y>
      <width>181</width>
      <height>41</height>
@@ -377,6 +377,42 @@ color: white</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleting_button">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>530</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yandex Sans Display Bold</family>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;
+background-color: #0080ff;
+border-radius: 12;
+</string>
+   </property>
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
    </property>
   </widget>
  </widget>

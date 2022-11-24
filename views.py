@@ -1,9 +1,8 @@
 import datetime
 import sys
 import threading
-from multiprocessing import Queue
-
 import schedule
+
 from PyQt6 import QtWidgets
 from PyQt6 import uic
 from PyQt6.QtWidgets import (
@@ -21,7 +20,7 @@ from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
 from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
 from services import LoginData, RegistrData
-from services import ringsystem_power, serch_time_for_nearest_ring
+from services import ringsystem_power, serch_time_for_nearest_ring, check_default
 
 # Encoding for the time module with days of the week
 translator_of_weekday = {
@@ -35,6 +34,7 @@ translator_of_weekday = {
 }
 
 big_check = 0
+
 
 class Window(QMainWindow):
     """Main user interaction window"""
@@ -94,14 +94,14 @@ class Window(QMainWindow):
         self.timetable_button.clicked.connect(self.go_timetable)
         self.template_button.clicked.connect(self.go_template)
         # authorization
-        # self.login_button_cerkle.clicked.connect(self.authorization)
-        # self.login_button_text.clicked.connect(self.authorization)
-        # self.authorization_window.start_login_button.clicked.connect(self.logining)
+        self.login_button_cerkle.clicked.connect(self.authorization)
+        self.login_button_text.clicked.connect(self.authorization)
+        self.authorization_window.start_login_button.clicked.connect(self.logining)
         self.authorization_window.start_regisration_button.clicked.connect(self.registring)
         # timetable
         self.DELETE_schedule_button.clicked.connect(self.delete_special_day)
         self.ADD_schedule_button.clicked.connect(self.add_special_day)
-        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
+        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish_set_templ)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
 
@@ -356,7 +356,7 @@ class Window(QMainWindow):
         else:
             self.locked_window.show()
 
-    def finish000templ(self):
+    def finish_set_templ(self):
         template = self.set_schedule_on_day_window.time_tamble_combobox.currentText()
         date = str(self.set_schedule_on_day_window.dateEdit.text()).replace('-', '.')
 
@@ -465,9 +465,12 @@ class Window(QMainWindow):
             self.bd_manager.save_shedule_row(finish, temp_id)
 
     def change_defoult_template(self):
-        self.choose_defoult_template.show()
-        self.init_template_radiobutton()
-        self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
+        if self.is_logined:
+            self.choose_defoult_template.show()
+            self.init_template_radiobutton()
+            self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
+        else:
+            self.locked_window.show()
 
     def save_defoult_template(self):
         self.choose_defoult_template.hide()
@@ -524,6 +527,12 @@ class Window(QMainWindow):
             widget = uic.loadUi('ui/one_template.ui')
             widget.title.setText(i[0])
             widget.edit_template.clicked.connect(self.refactor_template)
+
+            # self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+            # self.new_template.deleting_button.clicked.connect(self.delete_template)
+            # # self.new_template.finish_creating_button.clicked.disconnect(self.finish_creating_schedule)
+            # self.new_template.finish_creating_button.clicked.connect(self.save_changes_template)
+
             if y > 3:
                 x += 1
                 y = 0
@@ -537,13 +546,40 @@ class Window(QMainWindow):
         self.gridLayout.addWidget(widget, x, y)
 
     def refactor_template(self):
-        pass
+        if self.is_logined:
+            self.new_template.show()
+            self.new_template.finish_creating_button.setText('Save')
+            self.__fill_combobox_for_template()
+            self.__init_taddy_date_for_template()
+
+            self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+            self.new_template.deleting_button.clicked.connect(self.delete_template)
+            # self.new_template.finish_creating_button.clicked.disconnect(self.finish_creating_schedule)
+            # self.new_template.finish_creating_button.clicked.connect(self.save_changes_template)
+
+        else:
+            self.locked_window.show()
+
+    def save_changes_template(self):
+        self.sucsesfuly_window.show()
+        self.bd_manager.update_template()
+        self.new_template.finish_creating_button.clicked.connect(self.finish_creating_schedule)
+
+    def delete_template(self):
+        title = self.new_template.templates_combobox.currentText()
+        self.bd_manager.delete_template(title)
+        self.set_item_to_template()
+        self.new_template.hide()
 
     def create_template(self):
-        self.new_template.show()
-        self.__fill_combobox_for_template()
-        self.__init_taddy_date_for_template()
-        self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+        if self.is_logined:
+            self.new_template.show()
+            self.new_template.deleting_button.hide()
+            self.__fill_combobox_for_template()
+            self.__init_taddy_date_for_template()
+            self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
+        else:
+            self.locked_window.show()
 
     def __fill_combobox_for_template(self):
         self.new_template.templates_combobox.clear()
@@ -582,9 +618,15 @@ def window_power():
     sys.exit(app.exec())
 
 
+def main_checking():
+    schedule.every(1).minute.do(lambda: check_default(DataBaseManager()))
+    while True:
+        schedule.run_pending()
+
+
 if __name__ == '__main__':
     vew_window = threading.Thread(target=window_power)
-    ring_power = threading.Thread(target=ringsystem_power)
+    ring_power = threading.Thread(target=main_checking)
     ring_power.start()
     vew_window.start()
     ring_power.join()

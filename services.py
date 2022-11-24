@@ -1,3 +1,4 @@
+import datetime
 import time
 from typing import NamedTuple
 
@@ -5,6 +6,8 @@ import schedule
 from audioplayer import AudioPlayer
 
 from base_of_data import DataBaseManager
+
+# used_template = []
 
 
 class LoginData(NamedTuple):
@@ -34,26 +37,52 @@ class RingManager:
     def start_work(self):
         """Aggregator for streaming time tracking and call playback"""
 
+        # global used_template
+        # clean_used_template()
+
+        self.delete_old_special()
         special_id = self.bd_manager.get_special_date_on_today()
         print('специальный айди ------>', special_id)
+
+        # print(special_id in used_template)
         if special_id:
             new_special_id = self.bd_manager.get_perents_tempolate_id(special_id)
             self.today_sched = self.bd_manager.get_schedule_today(template_id=new_special_id)
-            self.run_schedule()
+            date = self.bd_manager.get_date_by_id(special_id)
+
+            # self.bd_manager.clear_changes_default()
+            # self.bd_manager.was_used(special_id)
+            # used_template.append(special_id)
+            # print(schedule.jobs)
+            # print(used_template)
+            self.run_special_schedule(date)
         else:
             self.today_sched = self.bd_manager.get_default_schedule()
-            self.run_schedule()
+            self.bd_manager.clear_changes_default()
+            self.run_deafault_schedule()
 
+    def delete_old_special(self):
+        nd, nm, ny = str(datetime.date.today().strftime("%d-%m-%Y")).split('-')
+        for i in self.bd_manager.get_active_templates():
+            d, m, y = i[1].split('.')
+            if y < ny or (y == ny and m < nm) or (y == ny and m == nm and d < nd):
+                self.bd_manager.delete_special_date(template=i[0], date=i[1])
 
-    def run_schedule(self):
+    def run_deafault_schedule(self):
         """Generates and runs a schedule for today"""
-        print(self.today_sched)
+
         for i in self.today_sched:
             schedule.every().day.at(i[0]).do(ring, i[1])
         # test:
         # schedule.every(3).seconds.do(ring, 'kapla.mp3')
-        while True:
-            schedule.run_pending()
+
+    def run_special_schedule(self, date):
+        for i in self.today_sched:
+            date_time = f'{date} {i[0]}'
+            print(date_time)
+            schedule.every(1).hour.until(date_time).do(ring, i[1])
+        # test:
+        # schedule.every(3).seconds.do(ring, 'kapla.mp3')
 
 
 def ringsystem_power():
@@ -61,7 +90,6 @@ def ringsystem_power():
 
     print('RUN')
     bd_manager = DataBaseManager()
-    schedule.every(1).minute.do(lambda: check_default(bd_manager))
     rm = RingManager()
     rm.start_work()
 
@@ -72,7 +100,6 @@ def check_default(bd_manager: DataBaseManager):
     special_key = bd_manager.get_special_date_on_today()
     if 1 in default_key:
         print('СРАБОТАЛО default')
-        bd_manager.clear_changes_default()
         ringsystem_power()
     if special_key:
         print('СРАБОТАЛО special')
@@ -103,3 +130,10 @@ def serch_time_for_nearest_ring(schedule: list) -> time:
             closeness = difference
             music = i[1]
     return closeness, music
+
+
+# def clean_used_template():
+#     active = DataBaseManager().get_active_templates()
+#     for i in used_template:
+#         if i not in active:
+#             used_template.remove(i)
