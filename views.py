@@ -1,11 +1,12 @@
 import datetime
 import sys
 import threading
-import schedule
+from multiprocessing import Queue
 
-from PyQt6 import QtWidgets
-from PyQt6 import uic
-from PyQt6.QtWidgets import (
+import schedule
+from PyQt5 import QtWidgets
+from PyQt5 import uic
+from PyQt5.QtWidgets import (
     QApplication,
     QMainWindow,
     QHBoxLayout,
@@ -13,14 +14,107 @@ from PyQt6.QtWidgets import (
     QRadioButton,
     QVBoxLayout,
     QFileDialog,
-    QCheckBox
+    QCheckBox,
+    QDialog,
+    QFrame
 )
 
 from base_of_data import DataBaseManager
 from datacheking import LoginChecker, RegistrChecker
 from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginError
 from services import LoginData, RegistrData
-from services import ringsystem_power, serch_time_for_nearest_ring, check_default
+from services import ringsystem_power, serch_time_for_nearest_ring
+
+from logining import Ui_Login
+from registration import Ui_Registration
+from sucsesfully import Ui_Sucsesfully
+from error import Ui_Error
+from authorization import Ui_Authorization
+from set_schedul_on_day import Ui_SetSchedule
+from delete_schedul_on_day import Ui_DeleteSchedule
+from choose_defoult_templateui import Ui_ChooseDefault
+from active_schedule import Ui_SpecialDate
+from add_template_frame import Ui_NewTemlate
+from get_name_templ import Ui_Naming
+from create_schedule import Ui_CreateTemplate
+from lock import Ui_Lock
+# Encoding for the time module with days of the week
+translator_of_weekday = {
+    0: 'Понедельник',
+    1: 'Вторник',
+    2: 'Среда',
+    3: 'Четверг',
+    4: 'Пятница',
+    5: 'Суббота',
+    6: 'Воскресенье',
+}
+
+big_check = 0
+
+
+class Login_DialogWindow(Ui_Login):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class Registration_DialogWindow(Ui_Registration):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class Sucsesfully_DialogWindow(Ui_Sucsesfully):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class Error_DialogWindow(Ui_Error):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class Authorization_DialogWindow(Ui_Authorization):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class SetSchedule_DialogWindow(Ui_SetSchedule):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class DeleteSchedule_DialogWindow(Ui_DeleteSchedule):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class ChooseDefaultTemplate_DialogWindow(Ui_ChooseDefault):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class AddTemplate_Frame(Ui_NewTemlate):
+    def __init__(self):
+        super().setupUi(QFrame())
+
+
+class SpicialDate_Frame(Ui_SpecialDate):
+    def __init__(self):
+        super().setupUi(QFrame())
+
+
+class NamingTemplate_DialogWindow(Ui_Naming):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class CreatingTemplate_DialogWindow(Ui_CreateTemplate):
+    def __init__(self):
+        super().setupUi(QDialog())
+
+
+class Lock_DialogWindow(Ui_Lock):
+    def __init__(self):
+        super().setupUi(QDialog())
 
 # Encoding for the time module with days of the week
 translator_of_weekday = {
@@ -68,23 +162,22 @@ class Window(QMainWindow):
     def load_ui(self):
         """Loads and saves all dialogs in the application"""
 
-        self.login_window = uic.loadUi('ui/logining.ui')
-        self.registration_window = uic.loadUi('ui/registration.ui')
-        self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
-        self.error_window = uic.loadUi('ui/error.ui')
-        self.authorization_window = uic.loadUi('ui/authorization.ui')
+        self.login_window = Login_DialogWindow()
+        self.registration_window = Registration_DialogWindow()
+        self.sucsesfuly_window = Sucsesfully_DialogWindow()
+        self.error_window = Error_DialogWindow()
+        self.authorization_window = Authorization_DialogWindow()
 
-        self.set_schedule_on_day_window = uic.loadUi('ui/set_schedul_on_day.ui')
-        self.delete_schedule_on_day_window = uic.loadUi('ui/delete_schedul_on_day.ui')
+        self.set_schedule_on_day_window = SetSchedule_DialogWindow()
+        self.delete_schedule_on_day_window = DeleteSchedule_DialogWindow()
 
-        self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
-        self.add_templ = uic.loadUi('ui/add_template_frame.ui')
-        self.active_schedule_window = uic.loadUi('ui/active_schedule.ui')
-        self.naming_temp = uic.loadUi('ui/get_name_templ.ui')
+        self.choose_defoult_template = ChooseDefaultTemplate_DialogWindow()
+        self.add_templ = AddTemplate_Frame()
+        self.active_schedule_window = SpicialDate_Frame()
+        self.naming_temp = NamingTemplate_DialogWindow()
+        self.new_template = CreatingTemplate_DialogWindow()
 
-        self.new_template = uic.loadUi('ui/create_schedule.ui')
-
-        self.locked_window = uic.loadUi('ui/lock.ui')
+        self.locked_window = Lock_DialogWindow()
 
     def connect_button(self):
         """Connect button in main window"""

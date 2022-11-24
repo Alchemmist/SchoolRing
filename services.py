@@ -131,9 +131,3 @@ def serch_time_for_nearest_ring(schedule: list) -> time:
             music = i[1]
     return closeness, music
 
-
-# def clean_used_template():
-#     active = DataBaseManager().get_active_templates()
-#     for i in used_template:
-#         if i not in active:
-#             used_template.remove(i)
