@@ -362,9 +362,9 @@ color: white</string>
      <widget class="QScrollArea" name="scrollArea_5">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>190</x>
         <y>110</y>
-        <width>571</width>
+        <width>551</width>
         <height>461</height>
        </rect>
       </property>
@@ -378,7 +378,7 @@ color: white</string>
        <number>0</number>
       </property>
       <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOn</enum>
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -391,7 +391,7 @@ color: white</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>554</width>
+         <width>551</width>
          <height>461</height>
         </rect>
        </property>
@@ -466,7 +466,7 @@ border-radius: 18;
         <string notr="true">color: white</string>
        </property>
        <property name="text">
-        <string>По умолчанию - </string>
+        <string>По умолчанию - Defoukt2</string>
        </property>
       </widget>
      </widget>

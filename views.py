@@ -4,9 +4,9 @@ import threading
 from multiprocessing import Queue
 
 import schedule
-from PyQt5 import QtWidgets
-from PyQt5 import uic
-from PyQt5.QtWidgets import (
+from PyQt6 import QtWidgets
+from PyQt6 import uic
+from PyQt6.QtWidgets import (
     QApplication,
     QMainWindow,
     QHBoxLayout,
@@ -14,9 +14,7 @@ from PyQt5.QtWidgets import (
     QRadioButton,
     QVBoxLayout,
     QFileDialog,
-    QCheckBox,
-    QDialog,
-    QFrame
+    QCheckBox
 )
 
 from base_of_data import DataBaseManager
@@ -25,19 +23,6 @@ from datacheking import PhoneError, PasswordError, FIOError, SchoolError, LoginE
 from services import LoginData, RegistrData
 from services import ringsystem_power, serch_time_for_nearest_ring
 
-from logining import Ui_Login
-from registration import Ui_Registration
-from sucsesfully import Ui_Sucsesfully
-from error import Ui_Error
-from authorization import Ui_Authorization
-from set_schedul_on_day import Ui_SetSchedule
-from delete_schedul_on_day import Ui_DeleteSchedule
-from choose_defoult_templateui import Ui_ChooseDefault
-from active_schedule import Ui_SpecialDate
-from add_template_frame import Ui_NewTemlate
-from get_name_templ import Ui_Naming
-from create_schedule import Ui_CreateTemplate
-from lock import Ui_Lock
 # Encoding for the time module with days of the week
 translator_of_weekday = {
     0: 'Понедельник',
@@ -50,85 +35,6 @@ translator_of_weekday = {
 }
 
 big_check = 0
-
-
-class Login_DialogWindow(Ui_Login):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class Registration_DialogWindow(Ui_Registration):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class Sucsesfully_DialogWindow(Ui_Sucsesfully):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class Error_DialogWindow(Ui_Error):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class Authorization_DialogWindow(Ui_Authorization):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class SetSchedule_DialogWindow(Ui_SetSchedule):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class DeleteSchedule_DialogWindow(Ui_DeleteSchedule):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class ChooseDefaultTemplate_DialogWindow(Ui_ChooseDefault):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class AddTemplate_Frame(Ui_NewTemlate):
-    def __init__(self):
-        super().setupUi(QFrame())
-
-
-class SpicialDate_Frame(Ui_SpecialDate):
-    def __init__(self):
-        super().setupUi(QFrame())
-
-
-class NamingTemplate_DialogWindow(Ui_Naming):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class CreatingTemplate_DialogWindow(Ui_CreateTemplate):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-
-class Lock_DialogWindow(Ui_Lock):
-    def __init__(self):
-        super().setupUi(QDialog())
-
-# Encoding for the time module with days of the week
-translator_of_weekday = {
-    0: 'Понедельник',
-    1: 'Вторник',
-    2: 'Среда',
-    3: 'Четверг',
-    4: 'Пятница',
-    5: 'Суббота',
-    6: 'Воскресенье',
-}
-
-big_check = 0
-
 
 class Window(QMainWindow):
     """Main user interaction window"""
@@ -162,22 +68,23 @@ class Window(QMainWindow):
     def load_ui(self):
         """Loads and saves all dialogs in the application"""
 
-        self.login_window = Login_DialogWindow()
-        self.registration_window = Registration_DialogWindow()
-        self.sucsesfuly_window = Sucsesfully_DialogWindow()
-        self.error_window = Error_DialogWindow()
-        self.authorization_window = Authorization_DialogWindow()
+        self.login_window = uic.loadUi('ui/logining.ui')
+        self.registration_window = uic.loadUi('ui/registration.ui')
+        self.sucsesfuly_window = uic.loadUi('ui/sucsesfully.ui')
+        self.error_window = uic.loadUi('ui/error.ui')
+        self.authorization_window = uic.loadUi('ui/authorization.ui')
 
-        self.set_schedule_on_day_window = SetSchedule_DialogWindow()
-        self.delete_schedule_on_day_window = DeleteSchedule_DialogWindow()
+        self.set_schedule_on_day_window = uic.loadUi('ui/set_schedul_on_day.ui')
+        self.delete_schedule_on_day_window = uic.loadUi('ui/delete_schedul_on_day.ui')
 
-        self.choose_defoult_template = ChooseDefaultTemplate_DialogWindow()
-        self.add_templ = AddTemplate_Frame()
-        self.active_schedule_window = SpicialDate_Frame()
-        self.naming_temp = NamingTemplate_DialogWindow()
-        self.new_template = CreatingTemplate_DialogWindow()
+        self.choose_defoult_template = uic.loadUi('ui/choose_defoult_templateui.ui')
+        self.add_templ = uic.loadUi('ui/add_template_frame.ui')
+        self.active_schedule_window = uic.loadUi('ui/active_schedule.ui')
+        self.naming_temp = uic.loadUi('ui/get_name_templ.ui')
 
-        self.locked_window = Lock_DialogWindow()
+        self.new_template = uic.loadUi('ui/create_schedule.ui')
+
+        self.locked_window = uic.loadUi('ui/lock.ui')
 
     def connect_button(self):
         """Connect button in main window"""
@@ -194,7 +101,7 @@ class Window(QMainWindow):
         # timetable
         self.DELETE_schedule_button.clicked.connect(self.delete_special_day)
         self.ADD_schedule_button.clicked.connect(self.add_special_day)
-        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish_set_templ)
+        self.set_schedule_on_day_window.add_schedule_button.clicked.connect(self.finish000templ)
         # # template
         self.edit_defoult_button.clicked.connect(self.change_defoult_template)
 
@@ -449,7 +356,7 @@ class Window(QMainWindow):
         else:
             self.locked_window.show()
 
-    def finish_set_templ(self):
+    def finish000templ(self):
         template = self.set_schedule_on_day_window.time_tamble_combobox.currentText()
         date = str(self.set_schedule_on_day_window.dateEdit.text()).replace('-', '.')
 
@@ -558,12 +465,9 @@ class Window(QMainWindow):
             self.bd_manager.save_shedule_row(finish, temp_id)
 
     def change_defoult_template(self):
-        if self.is_logined:
-            self.choose_defoult_template.show()
-            self.init_template_radiobutton()
-            self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
-        else:
-            self.locked_window.show()
+        self.choose_defoult_template.show()
+        self.init_template_radiobutton()
+        self.choose_defoult_template.finish_chiise_button.clicked.connect(self.save_defoult_template)
 
     def save_defoult_template(self):
         self.choose_defoult_template.hide()
@@ -620,12 +524,6 @@ class Window(QMainWindow):
             widget = uic.loadUi('ui/one_template.ui')
             widget.title.setText(i[0])
             widget.edit_template.clicked.connect(self.refactor_template)
-
-            # self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
-            # self.new_template.deleting_button.clicked.connect(self.delete_template)
-            # # self.new_template.finish_creating_button.clicked.disconnect(self.finish_creating_schedule)
-            # self.new_template.finish_creating_button.clicked.connect(self.save_changes_template)
-
             if y > 3:
                 x += 1
                 y = 0
@@ -639,40 +537,13 @@ class Window(QMainWindow):
         self.gridLayout.addWidget(widget, x, y)
 
     def refactor_template(self):
-        if self.is_logined:
-            self.new_template.show()
-            self.new_template.finish_creating_button.setText('Save')
-            self.__fill_combobox_for_template()
-            self.__init_taddy_date_for_template()
-
-            self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
-            self.new_template.deleting_button.clicked.connect(self.delete_template)
-            # self.new_template.finish_creating_button.clicked.disconnect(self.finish_creating_schedule)
-            # self.new_template.finish_creating_button.clicked.connect(self.save_changes_template)
-
-        else:
-            self.locked_window.show()
-
-    def save_changes_template(self):
-        self.sucsesfuly_window.show()
-        self.bd_manager.update_template()
-        self.new_template.finish_creating_button.clicked.connect(self.finish_creating_schedule)
-
-    def delete_template(self):
-        title = self.new_template.templates_combobox.currentText()
-        self.bd_manager.delete_template(title)
-        self.set_item_to_template()
-        self.new_template.hide()
+        pass
 
     def create_template(self):
-        if self.is_logined:
-            self.new_template.show()
-            self.new_template.deleting_button.hide()
-            self.__fill_combobox_for_template()
-            self.__init_taddy_date_for_template()
-            self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
-        else:
-            self.locked_window.show()
+        self.new_template.show()
+        self.__fill_combobox_for_template()
+        self.__init_taddy_date_for_template()
+        self.new_template.templates_combobox.currentTextChanged.connect(self.chenge_tableitem_as_template)
 
     def __fill_combobox_for_template(self):
         self.new_template.templates_combobox.clear()
@@ -711,15 +582,9 @@ def window_power():
     sys.exit(app.exec())
 
 
-def main_checking():
-    schedule.every(1).minute.do(lambda: check_default(DataBaseManager()))
-    while True:
-        schedule.run_pending()
-
-
 if __name__ == '__main__':
     vew_window = threading.Thread(target=window_power)
-    ring_power = threading.Thread(target=main_checking)
+    ring_power = threading.Thread(target=ringsystem_power)
     ring_power.start()
     vew_window.start()
     ring_power.join()

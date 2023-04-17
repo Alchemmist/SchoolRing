@@ -100,13 +100,13 @@ class DataBaseManager:
             return ''
 
     def add_special_date(self, template, date):
+        print('true save')
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        comand = f'INSERT INTO template(title, date, "default") ' \
-                 f'VALUES("{template}", "{date}", 0)'
+        comand = f'INSERT INTO template(title, date, default) ' \
+                 f'VALUES("{template}", "{date}", "{0}")'
         cur.execute(comand).fetchall()
         con.commit()
-        print('true save')
 
     def update_special_date(self, template, date, id):
         con = sqlite3.connect('data_base/schoolring.sqlite')
@@ -174,6 +174,7 @@ class DataBaseManager:
         comand = f'SELECT "default" FROM template'
         result = cur.execute(comand).fetchall()
         finish = []
+        print(result)
         for i in result:
             finish.append(i[0])
         return finish
@@ -181,15 +182,18 @@ class DataBaseManager:
     def get_special_date_on_today(self):
         con = sqlite3.connect('data_base/schoolring.sqlite')
         cur = con.cursor()
-        a = f"{datetime.date.today(): %d-%m-%Y}".replace('-', '.').replace(' ', '')
-        comand = f'SELECT id FROM template WHERE date="{a}"'
+        a = f"{datetime.date.today(): %d-%m-%Y}"
+        date = a.replace('-', '.')
+        date = date.replace(' ', '')
+        comand = f'SELECT id FROM template WHERE date="{date}"'
         result = cur.execute(comand).fetchall()
+        print(result)
         try:
             return result[0][0]
         except Exception:
             return []
 
-    def clear_changes_default(self):
+    def clear_changes(self):
         self._clear()
 
     def get_perents_tempolate_id(self, special_id):
@@ -199,32 +203,3 @@ class DataBaseManager:
                  f'AND date IS NULL'
         result = cur.execute(comand).fetchall()
         return result[0][0]
-
-    def get_date_by_id(self, id):
-        con = sqlite3.connect('data_base/schoolring.sqlite')
-        cur = con.cursor()
-        comand = f'SELECT date FROM template WHERE id={id}'
-        result = cur.execute(comand).fetchall()
-        return '-'.join(result[0][0].split('.')[::-1])
-
-    # def check_used(self, special_id):
-    #     con = sqlite3.connect('data_base/schoolring.sqlite')
-    #     cur = con.cursor()
-    #     comand = f'SELECT used FROM template WHERE id={id}'
-    #     result = cur.execute(comand).fetchall()
-    #     return result[0]
-    #
-    # def was_used(self, special_id):
-    #     con = sqlite3.connect('data_base/schoolring.sqlite')
-    #     cur = con.cursor()
-    #     comand = f'SELECT used FROM template WHERE id={id}'
-    #     result = cur.execute(comand).fetchall()
-    #     return result[0]
-
-    def delete_template(self, template):
-        con = sqlite3.connect('data_base/schoolring.sqlite')
-        cur = con.cursor()
-        comand = f'DELETE FROM template ' \
-                 f'WHERE title="{template}" AND date IS NULL'
-        cur.execute(comand).fetchall()
-        con.commit()
