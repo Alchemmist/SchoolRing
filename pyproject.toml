@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "schoolring"
+version = "0.1.0"
+description = ""
+authors = ["Alchemmist <anton.ingrish@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyqt5 = "^5.15.9"
+schedule = "^1.2.0"
+audioplayer = "^0.6"
+pyqt6 = "^6.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
